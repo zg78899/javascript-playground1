@@ -1,12 +1,11 @@
-var star = '';
 var line = 5;
+var star = '';
 
-for (var i = line; i > 0; i--) {
-
-  for (var j = line - i; j > 0; j--) {
+for (var i = 0; i < line; i++) {
+  for (var j = 0; j <= i; j++) {
     star += ' ';
   }
-  for (var j = 2 * i - 1; j > 0; j--) {
+  for (var j = 0; j < 2 * (line - i) - 1; j++) {
     star += '*';
   }
   star += '\n';
