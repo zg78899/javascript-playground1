@@ -7,15 +7,17 @@ const todos = [
 function render() {
   let html = '';
 
-  todos.forEach(function (todo) {
-    console.log(todo);
-    
-  });
+  todos.forEach((todo) => {
 
+    html += `<li id=${todo.id}>
+    <label><input type= "checkbox" ${todo.completed ? 'checked' : ''}>${todo.content}</label>
+  </li>`;
+  });
   return html;
 }
 
 console.log(render());
+
 /*
 <li id="3">
   <label><input type="checkbox">HTML</label>
@@ -26,3 +28,5 @@ console.log(render());
 <li id="1">
   <label><input type="checkbox">Javascript</label>
 </li>
+*/
+
