@@ -13,10 +13,20 @@ function render() {
     <label><input type= "checkbox" ${todo.completed ? 'checked' : ''}>${todo.content}</label>
   </li>`;
   });
-  return html;
+  return html;//foreach는 undefined을 반환한다. 따라서 밖에서 리턴해준다.
 }
 
 console.log(render());
+
+function render(){
+  let html='';
+  for(let i=0;i<todos.length;i++){
+    const todo= todos[i];
+    html+= `<li id=${todo.id}>
+  <label><input type=${todo.completed? 'checked':''}>HTML</label>
+</li>`;
+  }
+}
 
 /*
 <li id="3">

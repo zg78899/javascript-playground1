@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <script>
+    function foo() {
+      const x = 1;
+      const y = 2;
+
+      // 클로저
+      function bar() {
+        // 상위 스코프의 식별자 x만을 참조한다.
+        console.log(x);
+      }
+      return bar;
+    }
+
+    const bar = foo();
+    bar();
+  </script>
+</body>
+</html>
