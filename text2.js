@@ -27,12 +27,12 @@
 //     }
 //   };
 // }
-const Numbers=(function () {
+const Numbers = (function () {
 
-  function Numbers(){
+  function Numbers() {
     this.numberArray = [];
   }
-  Numbers.prototype.multiply= function (arr){
+  Numbers.prototype.multiply = function (arr) {
     arr.forEach(function (item) {
       // 외부에서 this를 전달하지 않으면 this는 전역 객체를 가리킨다.
       this.numberArray.push(item * item);
@@ -44,7 +44,6 @@ const Numbers=(function () {
 const numbers = new Numbers();
 numbers.multiply([1, 2, 3]);
 console.log(numbers.numberArray); // 
-//////////////////////////////////////////////////
 
 const Numbers = (function () {
   function Numbers() {
@@ -81,12 +80,152 @@ console.log(preArr);
 Collapse
 
 
+class Numbers {
+  numberArray = [];
+
+  multiply(arr) {
+    arr.forEach(function (item) {
+      // 일반 함수로 호출되는 콜백 함수 내부의 this는 전역 객체를 가리킨다.
+      // TypeError: Cannot read property 'numberArray' of undefined
+      this.numberArray.push(item * item);
+    });
+  }
+}
+
+const numbers = new Numbers();
+numbers.multiply([1, 2, 3]);
+console.log(numbers.numberArray);
+
+class Numbers {
+
+  numberArray = [];
+
+  multiply(arr) {
+    arr.forEach(function (item) {
+      this.numberArray.push(item * item);
+
+    });
+  }
+}
+const numbers = new Numbers();
+numbers.multiply([1, 2, 3]);
+console.log(numbers.numberArray);
+
+class Numbers {
+  numberArray = [];
+
+  multiply(arr) {
+    arr.forEach(function (item) {
+      this.numberArray.push(item * item);
+    });
+  }
+}
+const numbers = new Number();
+multiply([1, 2, 3]);
+console.log(numbers.numberArray);
+
+const Numbers = (function () {
+  function Numbers() {
+    this.numberArray = [];
+  }
+
+  Numbers.prototype.multiply = function (arr) {
+    arr.forEach(function (item) {
+      this.numberArray.push(item * item);
+    });
+  }
+  return Number;
+}());
+const numbers = new Number();
+multiply([1, 2, 3]);
+console.log(numbers.numberArray);
+
+let todos = [
+  { id: 1, content: 'HTML' completed: false },
+  { id: 1, content: 'HTML' completed: true },
+  { id: 1, content: 'HTML' completed: false }
+];
+
+function getMaxId() {
+  return Math.max(...todos.map(item)=> item.id));
+  return Math.max.apply(null,todos.map(item))
+}
+console.log(getMaxId());
+
+class Number{
+  numberArray=[];
+
+  multiply(arr){
+  
+    arr.forEach((item=>{
+      this.numberArray.push(item*item);
+    },this));
+  }
+}
+const numbers=new Number();
+multiply([1,2,3]);
+console.log(numbers.numberArray);
+
+ const Numbers=(function{
+   function Numbers(){
+     this.numberArray=[];
+  } 
+   Numbers.prototype.multiply=function(arr){
+     arr.forEach(function(item){
+      this.numberArray.push(item*item);
+     },this);
+   }
+return Numbers;
+ }());
+ const numbers=new Numbers();
+ multiply([1,2,3]);
+ console.log(numbers.numberArray);
+
+ const numbers=[1,4,9];
+ 
+ const root=numbers.map(item=>Math.sqrt(item));
+
+ console.log(root);
+ console.log(numbers);
 
 
+ const Prefixer=(function(){
 
+   function Prefixer(prefix){
+     this.prefix=prefix;
+   }
 
+   Prefixer.prototype.prefixArray=function(arr){
+    return arr.map((item=>this.prefix+item);
+   }
+   
+   return Prefixer;
+ }());
+ const pre=new Prefixer('web-kit');
+ const preArr=pre.prefixArray(['linear-gradients','border-radius']);
+ console.log(preArr);
 
+ class Person{
+   constructor(firstName,lastName){
+     this.firstName=firstName;
+     this.lastName=lastName;
+   }
+   get fullName(){
+     return this.firstName+''+this.lastName;
+   }
+   set fullName(name){
+     [this.firstName,this.lastName]=name.split('');
+   }
+ }
+ const me=new Person('jaehun','kim');
+console.log(`${me.firstName} ${me.lastName}`);
 
+me.fullName='jaehun kim';
+console.log(me);//setter
+
+console.log(me.fullName);//getter
+
+console.log(Object.getOwnPropertyDescriptor(Person.prototype,'fullName'));
 
 
 

@@ -5,7 +5,7 @@ let todos = [
 ];
 
 function countCompletedTodos() {
-  todos = todos.filter(item => item.completed).length;
+  todos = todos.filter((item) => item.completed).length;
   return todos;
 }
 

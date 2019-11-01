@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <ul id="myId" class="class1 class2" style="color:red">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>Javascript</li>
+  </ul>
+  <script>
+
+    const $ul = document.querySelector('ul');
+    $ul.lastElementChild.style.color = 'blue';
+    // $li.nextElementSibling.nextElementSibling.style.color='blue';
+    const $li = document.querySelector('li');
+    const $lis = document.querySelectorAll('li');
+    console.log('$lis');
+    [...$lis].forEach(($li) => $li.classList.add('classs10'));
+    [...$lis].forEach(($li, i) => $li.classList.add(`class${i + 1}`));
+  
+
+
+
+  //   = document.querySelectorAll('li');
+  //   // console.log($lis);
+  //   console.log([...$lis].forEach($li,i) => $li.classList.add(`class${i+1}`));
+
+  //  document.querySelector('#myId').innerHTML += `<h1>Hello</h1>`;
+  //   $ul.style.color='blue';
+    const $ul=document.querySelector('ul');
+console.log($ul);
+console.log($ul.className);
+
+  //   console.log($ul.className);
+  //  console.log($ul.classList.add('class3'));
+
+console.log($ul.classList.contains('class3'));
+cos
+
+  // //  console.log($ul.classList.contains('class3'));
+  //  console.log($ul.classList.remove('class3'));
+  // //  console.log([...$ul.classList].forEach((i1tem)=> console.log(item);));
+  </script>
+</body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html lang="ko">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+  </head>
+
+  <body>
+    <ul>
+      <li id='one' class='red'>Seoul</li>
+      <li id='two' class='red'>London</li>
+      <li id='three' class='red'>Newyork</li>
+      <li id='four'>Tokyo</li>
+    </ul>
+    <script>
+      const one = document.getElementById('one');
+      console.dir(one); // HTMLLIElement: li#one.red
+
+      // nodeName, nodeType을 통해 노드의 정보를 취득할 수 있다.
+      console.log(one.nodeName); // LI
+      console.log(one.nodeType); // 1: Element node
+
+      // firstChild 프로퍼티를 사용하여 텍스트 노드를 탐색한다.
+      const textNode = one.firstChild;
+
+      // nodeName, nodeType을 통해 노드의 정보를 취득할 수 있다.
+      console.log(textNode.nodeName); // #text
+      console.log(textNode.nodeType); // 3: Text node
+
+      // nodeValue 프로퍼티를 사용하여 노드의 값을 취득한다.
+      console.log(textNode.nodeValue); // Seoul
+
+      // nodeValue 프로퍼티를 이용하여 텍스트를 수정한다.
+      textNode.nodeValue = 'Pusan';
+      // const $ul = document.querySelector('ul');
+      // $ul.lastElementChild.style.color = 'blue';
+    // $li.nextElementSibling.nextElementSibling.style.color='blue';
+
+  //   = document.querySelectorAll('li');
+  //   // console.log($lis);
+  //   console.log([...$lis].forEach($li,i) => $li.classList.add(`class${i+1}`));
+
+  //  document.querySelector('#myId').innerHTML += '<h1>Hello</h1>';
+  //   $ul.style.color='blue';
+  //   console.log($ul.className);
+  //  console.log($ul.classList.add('class3'));
+  // //  console.log($ul.classList.contains('class3'));
+  //  console.log($ul.classList.remove('class3'));
+  // //  console.log([...$ul.classList].forEach(fucntion(item) {console.log(item);}));
+    </script>
+  </body>
+
+  </html>
+
+  <script>
+    const $ul = document.querySelector('ul');
+    $ul.lastElementChild.style.color = 'blue';
+    // $li.nextElementSibling.nextElementSibling.style.color='blue';
+
+  //   = document.querySelectorAll('li');
+  //   // console.log($lis);
+  //   console.log([...$lis].forEach($li,i) => $li.classList.add(`class${i+1}`));
+
+  //  document.querySelector('#myId').innerHTML += '<h1>Hello</h1>';
+  //   $ul.style.color='blue';
+  //   console.log($ul.className);
+  //  console.log($ul.classList.add('class3'));
+  // //  console.log($ul.classList.contains('class3'));
+  //  console.log($ul.classList.remove('class3'));
+  // //  console.log([...$ul.classList].forEach(fucntion(item) {console.log(item);}));
+  </script>
+</body>
+
+</html>

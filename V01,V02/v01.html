@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .cb:checked+.content {
+      text-decoration: line-through;
+      ;
+    }
+  </style>
+</head>
+
+
+<body>
+  <input type="text" class="inputTodo" placeholder="Enter content">
+  <!-- <button class="addButton">add</button> -->
+  <ul class="todos"></ul>
+
+  <script>
+
+    const $inputTodo = document.querySelector('.inputTodo');
+    // const $addButton = document.querySelector('.addButton');
+    const $todos = document.querySelector('.todos');
+
+    $inputTodo.onkeyup = function (e) {
+      if (e.keyCode !== 13 || $inputTodo.value.trim() === '') return;
+
+      $todos.innerHTML += `
+      <li>
+        <label>
+          <input class='cb' type='checkbox'>
+          <span class='content'>${$inputTodo.value}</span>
+          <button class="remove">X</button>
+        </label>
+      </li>`;
+
+      $inputTodo.value = '';
+    };
+
+    $todos.addEventListener('click', function (e) {
+      if (!e.target.classList.contains('remove')) return;
+      $todos.removeChild(e.target.parentNode.parentNode);
+    });
+
+  </script>
+</body>
+
+</html>

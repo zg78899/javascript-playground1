@@ -1,21 +1,75 @@
 <!DOCTYPE html>
-<html>
-<body>
-  <script>
-    function foo() {
-      const x = 1;
-      const y = 2;
+<html lang="ko">
 
-      // 클로저
-      function bar() {
-        // 상위 스코프의 식별자 x만을 참조한다.
-        console.log(x);
-      }
-      return bar;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .cb:checked+.content {
+      text-decoration: line-through;
     }
+  </style>
+</head>
 
-    const bar = foo();
-    bar();
+<body>
+  <input class="inputTodo" type="text" placeholder="Enter content">
+  <!-- <button class="addButton">add</button> -->
+  <ul class="todos"></ul>
+
+
+  <script>
+    let todos = [];
+    const getTodos = function () {
+      //TODO:서버로부터 todos데이터를 취득
+      todos = [
+        { id: 1, content: 'HTML', completed: false },
+        { id: 2, content: 'CSS', completed: true },
+        { id: 3, content: 'Javascript', completed: false }
+      ];
+    };
+    window.onload=getTodos;
+    // const $inputTodo = document.querySelector('.inputTodo');
+    // // const $addButton = document.querySelector('.addButton');
+    // const $todos = document.querySelector('.todos');
+
+
+    // $inputTodo.onkeyup = e => {
+    //   if (e.keyCode !== 13 || $inputTodo.value.trim() === '') return;
+
+    //   $todos.innerHTML += `
+    // <li>
+    //   <label>
+    //     <input class="cb" type="checkbox" checked>
+    //     <span class="content">${$inputTodo.value}</span> 
+    //     <button class="remove">X</button>
+    //   </label>
+    //  </li>`;
+    //   $inputTodo.value = '';
+    // };
+
+    // // $addButton.onclick = function () {
+    // //   if (!$inputTodo.value) return;
+    // //   // console.log($inputTodo.value);
+    // //   $todos.innerHTML += `
+    // //   <li>
+    // //     <label>
+    // //      <input class="cb" type="checkbox">
+    // //      <span class="content">${$inputTodo.value}</span> 
+    // //      <button class="remove">X</button>
+    // //    </label>
+    // //   </li>`;
+    // //   $inputTodo.value = '';
+    // // };
+
+    // $todos.addEventListener('click', e => {
+    //   if (!e.target.classList.contains('remove')) return;
+    //   $todos.removeChild(e.target.parentNode.parentNode);
+    //   //li을 제거한다.
+    // });
   </script>
 </body>
+
+
 </html>

@@ -1,22 +1,40 @@
-// function getCount8() {
-//   for()
+// // function getCount8() {
+// //   for()
 
 
-// console.log(getCount8()); 
+// // console.log(getCount8()); 
 
-function Circle(radius) {
-  this.radius = radius;
+// function Circle(radius) {
+//   this.radius = radius;
+// }
+// Circle.prototype.getArea = function () {
+//   return 2 * Math.PI * this.radius ** 2;
+// };
+
+// const circle1 = new Circle(1);
+// const circle2 = new Circle(2);
+
+// // console.log(circle1.getArea());
+// // console.log(circle2.getArea());
+
+// // console.log(Circle.prototype === circle1.__proto__);
+
+// console.log(Object.getPrototypeOf(circle1)===Circle.prototype);
+function func1() {
+  console.log('func1');
+  func2();
 }
-Circle.prototype.getArea = function () {
-  return 2 * Math.PI * this.radius ** 2;
-};
 
-const circle1 = new Circle(1);
-const circle2 = new Circle(2);
+function func2() {
+  setTimeout(function() {
+    console.log('func2');
+  }, 0);
 
-// console.log(circle1.getArea());
-// console.log(circle2.getArea());
+  func3();
+}
 
-// console.log(Circle.prototype === circle1.__proto__);
+function func3() {
+  console.log('func3');
+}
 
-console.log(Object.getPrototypeOf(circle1)===Circle.prototype);
+func1();

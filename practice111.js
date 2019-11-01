@@ -1,28 +1,29 @@
-const todos = [
-  { id: 3, content: 'HTML', completed: false },
-  { id: 2, content: 'CSS', completed: true },
-  { id: 1, content: 'Javascript', completed: false }
-];
+// class Animal {
+//   constructor(age, weight) {
+//     this.age = age;
+//     this.weight = weight;
+//   }
 
-function render() {
-  let html = '';
+//   eat() { return 'eat'; }
 
-  todos.forEach(function (todo) {
-    console.log(todo);
-    
-  });
+//   move() { return 'move'; }
+// }
 
-  return html;
-}
+// class Bird extends Animal {
+//   fly() { return 'fly'; }
+// }
 
-console.log(render());
-/*
-<li id="3">
-  <label><input type="checkbox">HTML</label>
-</li>
-<li id="2">
-  <label><input type="checkbox" checked>CSS</label>
-</li>
-<li id="1">
-  <label><input type="checkbox">Javascript</label>
-</li>
+// const bird = new Bird(1, 5);
+// const animal = new Animal(2, 6);
+
+// console.log(bird);
+// console.log(animal);
+// console.log(animal.eat()) ;
+// console.log(animal.move()) ;
+// console.log(animal.weight) ;
+// console.log(animal.fly());
+// // Bird {age: 1, weight: 5}
+
+const b=true;
+b.
+
