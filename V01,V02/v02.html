@@ -20,7 +20,6 @@
 
 
   <script>
-
     let todos = [];
 
     const $todos = document.querySelector('.todos');
@@ -29,12 +28,9 @@
 
 
     const render = function () {
-
-
       let html = '';
 
-      todos.forEach(todo => {
-
+      todos.forEach((todo) => {
         html += `<li id="${todo.id}">
                   <label>
                    <input type='checkbox' class='cb' ${todo.completed ? 'checked' : ''}>
@@ -47,14 +43,13 @@
     };
 
     function getTodos() {
-
       todos = [
-        { id: 1, content: "HTML", completed: false },
-        { id: 2, content: "CSS", completed: true },
-        { id: 3, content: "Javascript", completed: false }
+        { id: 1, content: 'HTML', completed: false },
+        { id: 2, content: 'CSS', completed: true },
+        { id: 3, content: 'Javascript', completed: false }
       ];
       render();
-    };
+    }
 
     const addTodo = function (e) {
       const content = $input.value.trim();
@@ -68,9 +63,10 @@
     };
 
     const toggleCompleted = function (e) {
+      // console.log(e.target.checked);
       // console.log('id',e.target.parentNode.parentNode);
       const id = e.target.parentNode.parentNode.id;
-      todos = todos.map(todo => todo.id === +id ? { ...todo, completed: !todo.completed } : todo);
+      todos = todos.map((todo) => todo.id === +id ? { ...todo, completed: !todo.completed } : todo);
       render();
     };
 
@@ -78,7 +74,8 @@
       if (!e.target.classList.contains('remove')) return;
 
       const id = e.target.parentNode.id;
-      todos = todos.filter(todo => todo.id !== +id);
+      console.dir(e.target.parentNode);
+      todos = todos.filter((todo) => todo.id !== +id);
 
       render();
     };
@@ -88,24 +85,21 @@
       if (e.keyCode !== 13 || value.trim() === '') return;
 
       $input.value = '';
-      let Count = Math.max(0, ...todos.map(todo => todo.id)) + 1;
-      todos = [...todos, { id: count, content: value, completed: false }];
+      const COUNT = todos.length === 0 ? 1 : Math.max(...todos.map(todo => todo.id))+1;
+      // let Count = Math.max(0, ...todos.map(todo => todo.id)) + 1;
+      todos = [...todos, { id: COUNT, content: value, completed: false }];
       render();
     };
     $todos.onclick = function () {
     };
 
-    //events
+    // events
 
     window.onload = getTodos;
-
-    $input.onkeyup = addTodo;//추가
+    $input.onkeyup = addTodo; // 추가
     $todos.onchange = toggleCompleted;//
     $todos.onclick = removeTodo;
     $input.onkeyup = addTodos;
-
-
-
   </script>
 
 

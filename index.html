@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
-    .cb:checked+.content {
+    .cb:checked + .content {
       text-decoration: line-through;
     }
   </style>
@@ -20,16 +20,21 @@
 
 
   <script>
-    let todos = [];
-    const getTodos = function () {
-      //TODO:서버로부터 todos데이터를 취득
-      todos = [
-        { id: 1, content: 'HTML', completed: false },
-        { id: 2, content: 'CSS', completed: true },
-        { id: 3, content: 'Javascript', completed: false }
+    const $todos=document.querySelector(.todos);
+    
+    let todos=[];
+    const getTodos=function(){
+      todos=[
+        {id:1,content:'HTML',completed:false},
+        {id:1,content:'CSS',completed:true},
+        {id:1,content:'Javascript',completed:false},
       ];
     };
     window.onload=getTodos;
+
+    
+    //Todo:서버로부터 todos데이터
+    
     // const $inputTodo = document.querySelector('.inputTodo');
     // // const $addButton = document.querySelector('.addButton');
     // const $todos = document.querySelector('.todos');
@@ -48,7 +53,7 @@
     //  </li>`;
     //   $inputTodo.value = '';
     // };
-
+    
     // // $addButton.onclick = function () {
     // //   if (!$inputTodo.value) return;
     // //   // console.log($inputTodo.value);

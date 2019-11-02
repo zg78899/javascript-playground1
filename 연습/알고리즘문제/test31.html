@@ -32,7 +32,6 @@
     $todos.innerHTML += `<li class="todo"> test <button class="remove"> X </button> </li>`;
   });
 
-
   $todos.addEventListener('click', function (e) {
 
     if (!e.target.classList.contains('remove')) return;//있지않으면 무시한다.
