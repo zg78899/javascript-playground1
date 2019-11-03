@@ -5,10 +5,15 @@
 // 예를들어 [1, 3, 4, 8, 13, 17, 20, 23, 24]이 주어졌다면,
 // 결과값은 [[3, 4], [23, 24]]가 될 것이다.
 
-function findMinDistance(array){
-  let nearNumber=[];
-}
-
+function findMinDistance(array) {
+  let nearNumber = [];
+   array.filter((item,i,self)=>{
+     if(self[i]-self[i+1]===-1){
+       
+     }
+   })
+  
+  }
 // 1차원 점의 배열
 var array = [1, 3, 4, 8, 13, 17, 20, 23, 24];
 console.log(findMinDistance(array)); // [[3, 4], [23, 24]]
