@@ -12,9 +12,9 @@ function specialSort(array) {
   return testArray1.sort(function (a, b) {
     for (let i = 0; i < testArray1.length; i++) {
       if (testArray1[i] < 0) {
-        return b - a;
-      } else {
-        return a - b;
+        return (b - a);
+      } 
+        
       }
     }
   });
