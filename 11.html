@@ -19,14 +19,26 @@
 
     const $ul = document.querySelector('ul');
     $ul.lastElementChild.style.color = 'blue';
+    n
+
+
     // $li.nextElementSibling.nextElementSibling.style.color='blue';
+
     const $li = document.querySelector('li');
+
     const $lis = document.querySelectorAll('li');
     console.log('$lis');
+    const $lis=document.querySelectorAll('li');
+
+    [...lis].forEach($li=>$li.classList.add('class10'));
+    [...$lis].forEach(($li,i)=>$li.classList.add(`class${i+1}`));
+
     [...$lis].forEach(($li) => $li.classList.add('classs10'));
     [...$lis].forEach(($li, i) => $li.classList.add(`class${i + 1}`));
+    const  $lis=document.querySelectorAll('li');
+    
+    [...$lis].forEach(($li,i)=>$li.classList.add(`class${i+1}`))
   
-
 
 
   //   = document.querySelectorAll('li');
@@ -34,20 +46,32 @@
   //   console.log([...$lis].forEach($li,i) => $li.classList.add(`class${i+1}`));
 
   //  document.querySelector('#myId').innerHTML += `<h1>Hello</h1>`;
+  document.querySelector('#myId').innerHTML+=`<h1>Hello</h1>`;
+  
+  
   //   $ul.style.color='blue';
     const $ul=document.querySelector('ul');
+    const $ul=document.querySelector('ul');
+    console.log($ul.className);
 console.log($ul);
 console.log($ul.className);
+console.log($ul.classList.add('class3'));
 
   //   console.log($ul.className);
   //  console.log($ul.classList.add('class3'));
 
 console.log($ul.classList.contains('class3'));
-cos
+console.log($ul.classList.remove('class3'));
+console.log([...$ul..classList].forEach(item=>console.log(item)));
+const $ul=document.querySelector('ul');
+[...$ul.classList].forEach(item=>console.log(item));
+className
+nextSilb
+
 
   // //  console.log($ul.classList.contains('class3'));
   //  console.log($ul.classList.remove('class3'));
-  // //  console.log([...$ul.classList].forEach((i1tem)=> console.log(item);));
+  // //  console.log([...$ul.classList].forEach((item)=> console.log(item);));
   </script>
 </body>
 

@@ -3,9 +3,15 @@
 
 // 약수(約數, divisor)는 어떤 수를 나누었을 때 나머지가 0인 수를 말하며, 배수 관계와 서로 반대되는 개념이다
 function sumDivisor(num) {
-const divisor=[1,2,3,4,6,12];
+  // const divisor = [1, 2, 3, 4, 6, 12];
 
-return divisor.reduce((pre,cur)=>pre+cur,0);
+  // return divisor.reduce((pre, cur) => pre + cur, 0);
+  let result = 0;
+  for (let i = 0; i <= num; i++) {
+    if (num % i === 0)
+      result += i;
+  }
+  return result;
 }
 
 console.log(sumDivisor(12)); // 28

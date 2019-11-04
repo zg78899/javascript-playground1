@@ -240,25 +240,25 @@
 
     let todos = [];
 
-    const $todos=document.querySelector('.todos');
-    const $input=document.querySelector('.inputTodo');
+    const $todos = document.querySelector('.todos');
+    const $input = document.querySelector('.inputTodo');
 
-    
-    const render=function(){
 
-      let html='';
+    const render = function () {
 
-      todos.forEach(todo=>{
-        html+=`
+      let html = '';
+
+      todos.forEach(todo => {
+        html += `
          <li id=${todo.id}>
           <label>
-            <input class='cb' type='checkbox'${todo.completed?'checked':''}>
+            <input class='cb' type='checkbox'${todo.completed ? 'checked' : ''}>
             <span class='contnet'>${todo.content}<span>
             <button class=r'remove'>X</button>
           </label>
         </li>`;
       };
-      $todos.innerHTML=html;
+      $todos.innerHTML = html;
     };
 
     const getTodos = function () {
@@ -270,41 +270,197 @@
       render();
     };
 
-    const addTods=function(e){
-      const value=$input.value;
-      if(e.keyCode!==13 ||value.trim()==='')return;
-      $input.value='';
-      let Count=Math.max(0,...todos.map(todo=>todo.id))+1;
-      let count=todos.lengtth===0?1:Math.max(...todos.map(todo=>todo.id))+1;
+    const addTods = function (e) {
+      const value = $input.value;
+      if (e.keyCode !== 13 || value.trim() === '') return;
+      $input.value = '';
+      let Count = Math.max(0, ...todos.map(todo => todo.id)) + 1;
+      let count = todos.lengtth === 0 ? 1 : Math.max(...todos.map(todo => todo.id)) + 1;
 
-      todos=[...todos,{id:Count,content:value,completed:false}];
+      todos = [...todos, { id: Count, content: value, completed: false }];
       render();
     };
-    const toggleCompleted=function(e){
-    const id=e.target.parentNode.parentNode.id;
-    todos=todos.map(todo=>todo.id===+id?{...todo,completed:!todo.completed}:todo);
-    render();
+    const toggleCompleted = function (e) {
+      const id = e.target.parentNode.parentNode.id;
+      todos = todos.map(todo => todo.id === +id ? { ...todo, completed: !todo.completed } : todo);
+      render();
     };
-    const removeTodo=function(e){
-      if(!e.target.classList.contains(remove))return;
+    const removeTodo = function (e) {
+      if (!e.target.classList.contains(remove)) return;
 
-      const id= e.target.parentNode.parentNode.id;
-      todos=todos.filter(todo=>todo.id !== +id);
+      const id = e.target.parentNode.parentNode.id;
+      todos = todos.filter(todo => todo.id !== +id);
       render();
     }
 
 
 
-    
 
 
-    window.onload=getTodos;
-    $input.onkeyup=addtodos;
-    $todos.onchange=toggleCompleted;
-    $todos.onclick=removeTodo;
+
+    window.onload = getTodos;
+    $input.onkeyup = addtodos;
+    $todos.onchange = toggleCompleted;
+    $todos.onclick = removeTodo;
 
   </script>
 
 </body>
 
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .cb:checked+.content {
+      text-decoration: line-through;
+
+    }
+  </style>
+</head>
+
+<body>
+  <input class="inputTodo" type="text" placeholder="Enter content">
+  <button class="addButton">add</button>
+  <ul class="todos"></ul>
+
+  <script>
+    const $todos = document.querySelector('.todos');
+    const $input = document.querySelector('.inputTodo');
+    // const $addButton = document.querySelector('.addButton');
+
+    $input.onkeyup = function (e) {
+
+      if (e.keyCode !== 13 || $input.value.trim() === '') return;
+
+      $todos.innerHTML += `
+     <li>
+      <label>
+         <input class=cb type='checkbox>
+         <span class='content'>${$input.value}</span>
+         <button class='remove'>X</button>
+      </label>
+    </li>`;
+
+      $input.value = '';
+    };
+
+    $todos.onclick = function (e) {
+      if (!e.target.classList.contains('remove')) return;
+      $todos.removeChild(e.target.parentNode.parentNode);
+    };
+  </script>
+
+</body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <input class="inputTodo" type="text" placeholder="Enter content">
+  <ul class="todos"></ul>
+
+  <script>
+    let todos = [];
+    const $todos = document.querySelector('.todos');
+    const $input=document.querySelector('inputTodo');
+
+    const render = function () {
+      let html = '';
+      todos.forEach(todo => {
+        $todos.innerHTML += `
+        <li>
+         <label id=${todo}>
+          <input class=cb type='checkbox'${todo.completed?'chekced':''}>
+          <span class='content'>${todo.content}</span>
+          <button class='remove'>X</>
+         </label>
+        </li>`;
+      });
+     $todos.innerHTML=html;
+    };
+    const getTodos = function () {
+      todos = [
+        { id: 1, content: 'HTML', completed: false },
+        { id: 2, content: 'CSS', completed: true },
+        { id: 3, content: 'Javascript', completed: false },
+      ];
+      render();
+    };
+    const addTodos=funciton(e){
+      const content=$input.value;
+      if(e.keyCode!==13 || content.trim()==='')return;
+      $input.value='';
+      // const COUNT=Math.max(0,...todos.map(todo=>todo.id))+1;
+      const Count=todos.length===0? 1 : (Math.max(...todos.map(todo=>todo.id)+1))
+
+      todos=[...todos,{id:Count:conent,completed}:false];
+      render();
+    };
+    const toggleCompleted=function(e){
+      const id=e.taget.parentNode.parentNode.id;
+      todos=todos.map(todo=>todo.id ===+id ?{...todo,completed:!todo.completed}:todo);
+      render();
+    };
+    const removeTod=function(e){
+      if(!e.target.classlist.contains('remove'))return;
+      const id=e.target.parentNode.parentNode.id;
+      todos=toods.filter(todo=>todo.id!==id);
+      render();
+    };
+
+
+
+
+    window.onload = getTodos;
+    $input.onkeyup=addTods;
+    $todos.onchange=toggleCompleted;
+    $todos.onclick=removeTodo;
+
+
+
+  </script>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <em class="message"></em>
+  <script>
+    function showCoords(e,msg){
+    msg.innerHTML=
+    ''clientX value: ' + e.clientX + '<br>' +
+      'clientY value: ' + e.clientY;';
+    }
+    const msg=document.querySelector('.message');
+    addEventListener('click',funciton(e){
+    showCoords(e,msg);
+    });
+    </script>
+  
+</body>
 </html>

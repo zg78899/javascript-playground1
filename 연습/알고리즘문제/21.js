@@ -8,9 +8,8 @@
 function adder(x, y) {
 
   let sum = 0;
-  for (let i = x; i <= y; i++) {
-   return sum += i;
-  }
+  for (let i = x; i <= y; i++) sum += i;
+  return sum;
 }
 
 console.log(adder(3, 5)); // 12

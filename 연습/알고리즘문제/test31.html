@@ -21,15 +21,16 @@
 </body>
 <script>
 
-
-
   const $todos = document.querySelector('.todos');
   const $addButton = document.querySelector('.add');
   // const $li = document.querySelector('.todo');
   // const $remove = document.querySelector('.remove');
 
   $addButton.addEventListener('click', function () {
-    $todos.innerHTML += `<li class="todo"> test <button class="remove"> X </button> </li>`;
+    $todos.innerHTML += `
+    <li class="todo">
+      test<button class="remove">X</button>
+      </li>`;
   });
 
   $todos.addEventListener('click', function (e) {
