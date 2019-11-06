@@ -24,4 +24,6 @@
 // console.log(animal.fly());
 // // Bird {age: 1, weight: 5}
 
+const b=true;
+b.
 

@@ -16,6 +16,7 @@
       padding: 30px;
 
     }
+
     .control {
       width: 300px;
       padding: 5px;
@@ -38,35 +39,48 @@
 
 <body>
   <div class="stop-watch">
-    <div class="display"></div>
+    <div class="display">00:00:00</div>
     <button class="control">Start</button>
   </div>
   <script>
     const $button = document.querySelector('.control');
     const $display = document.querySelector('.display');
 
-
     let mil = 0;
     let sec = 0;
     let min = 0;
-    $button.onclick = function() {
-      let timer = setInterval(function () {
-        if (mil <= 99) {
-          console.log('mile', mil++);
-        }
-        else if (mil >= 100) {
-          mil = 0;
-          console.log(sec++);
-        }
-        if (sec >= 60) {
-          sec = 0;
-          min++;
-        }
-        $display.innerHTML = `${min}:${sec}:${mil}`;
-      }, 10);
-      clearInterval(timer);
+    let timer;
 
+    $button.onclick = (e) => {
+      if (e.target.textContent === 'Start') {
+        e.target.textContent = 'Stop';
+        timer = setInterval(Start, 10);
+      } else if (e.target.textContent === 'Stop') {
+        e.target.textContent = 'Start';
+        clearInterval(timer);
+      }
     };
+    function Start() {
+      if (mil <= 98) {
+        if (mil < 10) {
+          mil = '0' + mil;
+        } else console.log('mile', mil); // 0 
+        console.log(mil); // 0 00
+        mil++;
+        console.log(mil); // 0 1//
+       //99가 됨
+      }
+      else if (mil >= 99) {
+        mil = 0;
+        console.log(sec++);
+      }
+      if (sec >= 60) {
+        sec = 0;
+        min++;
+      }
+      $display.innerHTML = 
+      `${min < 10 ? '0' + min : min}:${sec < 10 ? '0' + sec : sec}:${mil < 10 ? '0' + mil : mil}`;
+    }
   </script>
 </body>
 
