@@ -1,7 +1,6 @@
 let todos = [];
 let navState ='all'; //'all'/'active'/'completed'
 
-
 const $nav=document.querySelector('.nav');
 const $todos = document.querySelector('.todos');
 const $input = document.querySelector('.input-todo');
@@ -18,12 +17,12 @@ const _todos=todos.filter(({completed})=>(navSatate==='all' ? true :(navState===
 
   todos.forEach(todo => {
     html += `
-  
     <li id="${todo.id}" class="todo-item">
       <input class="checkbox" id="ck-${todo.id}" type="checkbox"${todo.completed ? 'checked' : ''}>
       <label for="ck-${todo.id}">${todo.content}</label>
       <i class="remove-todo far fa-times-circle"></i>
     </li>`;
+    
   });
 
   $todos.innerHTML = html;

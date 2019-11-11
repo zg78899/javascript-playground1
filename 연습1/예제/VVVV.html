@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">Todos</h1>
+    <div class="ver">1.0</div>
+    <input class="input-todo" type="text" autofocus>
+
+    <ul class="nav">
+      <li id="all" class="active">All</li>
+      <li id="active">Active</li>
+      <li id="completed">Completed</li>
+    </ul>
+
+    <ul class="todos">
+      <!-- <li id="myId" class="todo-item">
+          <input class="checkbox" type="checkbox" id="ck-myId">
+          <label for="ck-myId">HTML</label>
+          <i class="remove-todo far fa-times-circle"></i>
+        </li> -->
+    </ul>
+  </div>
+  <footer>
+    <div class="completed-all">
+      <input id="ck-coplete-all" class="checkbox" type="checkbox">
+      <label for="ck-complete-all">mark</label>
+    </div>
+    <div class="clear-completed">
+      <button class="btn">Clear completed(<span class="completed-todos">0</span>)</button>
+      <strong class="active-todos">0</strong>items left
+    </div>
+
+    <script>
+      let todos = [];
+      let navState='all';
+
+      const $todos = document.querySelector('.todos');
+      const $input = document.querySelector('.input');
+      const $checkbox=document.querySelector('.complete-all>.checkbox');
+      const $clearCompleted=document.querySelector('.clear-completed>.btn');
+      const $completedTodo=document.querySelector('.completed-all');
+      const $activeTodos=document.querySelector('.active-todo');
+      const nav=document.querySelector('.nav');
+
+
+      const render = () => {
+        let html = '';
+        let _todos=todos.filter(({completed})=>navState==='all'? true:(navState==='active'? !completed:completed));
+
+        todos.forEach(({ id, content, completed }) => {
+          html += `
+          <li id="${id}" class="todo-item">
+            <input class="checkbox" id="ck-${id}" type="checkbox"${completed ? 'checked' : ''}>
+            <label for="ck-${id}">${content}</label>
+            <i class="remove-todo far fa-times-circle"></i>
+          </li>`;
+        });
+        $todos.innerHTML = html;
+        $completedTodo.textContent=todos.filter(todo=>!todo.completed).length;
+        $activeTodos.textContent=todos.filter(todo=>todo.completed).length;
+      };
+
+      const getTodos = () => {
+        todos = [
+          { id: 1, content: 'HTML', completed: false },
+          { id: 2, content: 'CSS', completed: true },
+          { id: 3, content: 'Javascript', completed: false }
+        ];
+        todos.sort((todo1, todo2) => todo2.id - todo1.id);
+      };
+      window.onload = () => {
+        getTodos();
+      };
+      const generateId = () => {
+        return todos.length ? Math.max(...todos.map(todo => todo.id)) + 1 : 1;
+      }
+      const addTodo = (content) => {
+        todos = [{ id: generateId(), content,, completed: false},...todos];
+      };
+      const toggleCompleted = (id) => {
+        todos=todos.map(todo=>todo.id=== +id?{...todo,completed:!todo.completed}:todo);
+      };
+      const removeTodo=(id)=>{
+        todos=todos.filter(todo=>todo.id !== +id);
+      };
+      const toggleCompletedAll=(checked)=>{
+        todos=todos.map(todo=>({...todos,completed:checked}));
+
+      };
+      const removeAll=()=>{
+        todos=todos.filter(todo=>!todo.completed);
+
+      };
+      const changeNaV=({target})=>{
+        [...$nav.children].forEach($navItem=>{
+          $navItem.classList.toggle('active',$navItem.id===target.id);
+        });
+        navState='all';
+      };
+      $input.onkeyup = ({ target, keyCode }) => {
+        const content = $input.value.trim();
+        if (content === '' || keyCode !== 13) return;
+        target.value =;
+        addTodo(content);
+        render();
+      }
+      $todos.onchange = ({ taget }) => {
+        toggleCompleted(target.parentNode.id);
+        render();
+      };
+      $todos.onclick=({target})=>{
+        if(!target.classList.contains(remove))return;
+        removeTodo(target.parentNode.id);
+        render();
+      }
+      $checkbox.onchange=({target})=>{
+      toggleCompletedAll(target.checked);
+      render();
+      }
+      $clearCompleted.onclick=()=>{
+        removeAll();
+        render();
+      }
+      $nav.onclick=({target})=>{
+        if(target.classList.contains('nav')) return;
+        changeNaV(target.id);
+        render();
+
+      }
+    </script>
+  </footer>
+
+</body>
+
+</html>
