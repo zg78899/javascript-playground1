@@ -151,6 +151,7 @@ const toggleCompleted = async (id) => {
   // .catch(err=>console.error(err));
 
 };
+
 const removeTodos = async (id) => {
   try {
     const res = await axios.delete(`/todos/${id}`)

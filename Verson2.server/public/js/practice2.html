@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <button class="button">와우</button>
+  <script>
+
+    let todos;
+    const $button = document.querySelector('.button');
+
+    const ajax = (() => {
+      const req = (url, method, payload) => {
+        fetch('url', {
+          method,
+          headers: { 'content-type': 'application' },
+          body: JSON.stringify(payload)
+        });
+        
+        return {
+          get(url) {
+            return req(url);
+          },
+          post(url, payload) {
+            return req(url, 'POST', payload)
+          }
+        };
+      };
+    })();
+    $button.addEventListener('click', () => {
+      addTodo();
+    });
+    // const getTodo = () => {
+    //   ajax('GET', 'http://localhost:4000')
+    //     .then((item) => todos = item);
+    // };
+    // const addTodo = () => {
+    //   ajax('POST', 'http://localhost:4000', { id: 10, content: 'CSS', conpleted: false })
+    //     .then(item => todos = item);
+    // };
+    const getTodo = () => {
+      ajax('http://localhost:4000')
+        .then((item) => todos = item.json())
+        .then(todos => console.log(todos));
+    };
+    const addTodo = () => {
+      ajax('http://loacalhost:4000', 'POST', { id: 1000, content: 'hihi', completed: true })
+        .then((item) => todos = item.json())
+        .then((todos) => console.log(todos));
+    }
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+const $button=document.querySelector('button');
+
+const ajax=(method,url,payload,callback)={
+const xhr=new XMLHttpRequest();
+xhr.open(method,url);
+xhr.send(payload);
+xhr.onload = () => {
+if (xhr.status === 200) {
+callback( xhr.response);
+} else {
+reject(new Error('Error'));
+}
+}
+};
+
+$button.addEventListener('clcik',()=>{
+addTodo();
+});
+
+const addTodo=()=>{
+
+console.log('실행');
+console.log(ajax('',url));
+ajax('GET','http://',(item)={//함수 실행문의 인수로
+console.log(item);
+});
+
+};
+
+
+const removeTodo=()=>{
+
+};
+const toggleTdos=()=>{
+
+};
