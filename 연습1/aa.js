@@ -34,7 +34,7 @@
 // class MyMath{
 //   static Pi=22/7;
 //   static #num=10;
-  
+
 //   static increment(){
 
 //     return ++MyMath.#num;
@@ -54,11 +54,23 @@
 // console.log(name.getPizza());
 // console.log(name);
 
-const a={};
-const b={key:'b'};
-const c={key:'c'};
+// const a={};
+// const b={key:'b'};
+// const c={key:'c'};
 
-a[b]=123;
-a[c]=456;
+// a[b]=123;
+// a[c]=456;
 
-console.log(a[b]);
+// console.log(a[b]);
+// function foo(){
+//   return (()=>0)();
+
+// }
+// console.log(typeof foo());
+
+const person = { name: 'Lee' };
+function sayHi(age) {
+  return `${this.name} is ${age}`;
+}
+console.log(sayHi.call(person, 20));
+console.log(sayHi.bind(person, 20));

@@ -128,7 +128,7 @@ const render = data => {
   $todos.innerHTML = html;
 }
 
-const get = (url.f)=> {
+const get = (url.f) => {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', url);
   xhr.send();

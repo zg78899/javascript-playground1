@@ -139,3 +139,37 @@ app.listen(3000,()=>{
   console.log('Servering is on posrt 3000');
 
 });
+
+fetch('/todos',{method:'GET'})
+.then(res=>res.data)
+.then(_toods=>todos=_todos)
+.then(render)
+.catch(err=>console.error(err));
+
+fetch('/todos',{
+  method:'POST',
+  headers:{'content-type':'application/json'},
+  body:{id:generateId(),content,completed:false}
+
+});
+.then(res=>res.json())
+.then(_todos=todo=_todos)
+.then(render)
+.catch(err=>console.error(err))
+
+fetch(`/todos/${id}`,{
+  method:'PATCH',
+  headers:{'content-type':'applicaiotn/json'},
+  body:JSON.stringify({completed:!completed})
+
+});
+.them(res=>res.json())
+.then(_todos=todos=_toods)
+.then(render)
+.catch(err=>console.error(err));
+
+fetch(`/todos/${id}`,{mrthod:'DELETE'})
+.then(res=>res.json())
+.then(_todos=todos=_todos)
+.then(render)
+.catch(err=>console.error(err))

@@ -28,7 +28,6 @@ const render = () => {
 
 const ajax = (() => {
   const req = (method, url, payload) => {
-
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open(method, url);
@@ -134,3 +133,51 @@ $checkbox.onchange = ({ target }) => {
 $clearCompletedAll.onclick = () => {
   removeCompleted();
 };
+
+const getTodo=async ()=>{
+try{
+  const res=await axios.get('/todos');
+  todos=res.data;
+  render();
+
+}catch(e){
+console.log(e);
+}
+};
+
+const addTodo=async (content)=>{
+  try{
+    const res=await axios.post('/todos',{id:generateId(),content,completed:false});
+    todos=res.data;
+    render();
+  }catch(e){
+    console.log(e); 
+  }
+};
+
+const toggleCompleted=(id)=>{
+  try{
+    const res=await axios.patch(`/todos/${id}`,{completed:!completed})
+    todos=res.data;
+    render();
+  }catch(e){
+    console.log(e);
+  }
+}
+const removeTodo=(id)=>{
+  try{
+    const res=await axios.delete(`/todos/${id}`)
+    todos=res.data;
+    render();
+  }catch(e){
+    console.log(e);
+    
+  }
+}
+
+(async()=>{
+ let todos=await ajax.get('/todos');
+ const id= Math.max(0,...todos.map(todo=>todo.id));
+ todos= await ajax.delete(`/todos/${id}`);
+ console.log(todos);
+})();

@@ -124,10 +124,3 @@ $nav.onclick = ({target}) => {
  changeTab(target);
  render();
 };
-
-
-
-
-
-
-
