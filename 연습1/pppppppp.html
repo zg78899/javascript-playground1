@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html lang="ko">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ul class="post-list">
+      <li id="post-1">Item 1</li>
+      <li id="post-2">Item 2</li>
+      <li id="post-3">Item 3</li>
+      <li id="post-4">Item 4</li>
+      <li id="post-5">Item 5</li>
+      <li id="post-6">Item 6</li>
+    </ul>
+    <script>
+      const $lists = document.querySelector('.post-list');
+      $lists.addEventListener('click', (e) => {
+        if ($lists.children[2].id === e.target.id) {
+          e.target.innerText = '찍었다';
+        }
+        if($lists.children[2].textNode=== '찍었다.') {
+          console.log(1231);
+         e.target.innerText = 'Item 3';
+        };
+      });
+    </script>
+
+  </body>
+
+  </html>
+
+</body>
+
+</html>
+const $lists=document.querySelector('.post-list');
+let str=''
+const toggleCometed(e){
+  let innerText=e.target.innerText;
+  let innerText=e.target;
+
+  if($list.children[2].id===e.target.id)return;
+  if(!str) str=e.target.innertext;
+
+  e.
+  e.target.innerText=e.target.innerText===str?'찍었다.':str;
+}
+$list.onclick=toggleCompleted();
+
+const $lists=document.querySelector('.post-list');
+let=str='';
+const toggleCompleted(e){
+  if($lists.children[i].id===e.target.id)return;
+  if(!str) str=e.target.innerText;
+
+  e.target.innerText=e.target.innerText===str?'찍었다.':str;
+
+};

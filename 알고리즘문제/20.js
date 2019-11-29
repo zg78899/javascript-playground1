@@ -12,3 +12,12 @@ function generateRange(from, to) {
 }
 
 console.log(generateRange(10, 15)); // [ 10, 11, 12, 13, 14, 15 ]
+
+function generateRange(from,to){
+  let res=[];
+  for(let i=from;i<=to;i++){
+    res.push(i)
+  }
+  return res;
+}
+console.log(generateRange(10,15));

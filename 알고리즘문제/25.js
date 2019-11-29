@@ -7,11 +7,11 @@
 
 function findMinDistance(array) {
   let nearNumber = [];
-  array.filter((item, i, self) => {
-    if (self[i] - self[i + 1] === -1)
-  
+   return array.filter((item, i, self) => {
+    if (self[i] - self[i + 1] === -1){
+      return nearNumber.push(self[i],self[i+1]);
+    }
   });
-
 }
 // 1차원 점의 배열
 var array = [1, 3, 4, 8, 13, 17, 20, 23, 24];

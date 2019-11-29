@@ -239,5 +239,20 @@ axios.ajax.delete(`/todos/${id}`)
 .then(render)
 .catch(err=>console.error(err))
 
+const promise=new Promise((resolve,reject)=>{
+  const random=Math.floor(Math.random*10);
+  setTimeout(()=>{
+    if(random>=5)resolve(random);
+    else reject(new Error('error'));
+  });
+});
+promise
+.then(res=>console.log(res))
+.catch(err=console.log(err));
 
 
+const p=new Promise((resolve,reject)=>{
+  resolve(1);
+})
+.then(num=>++num)
+.then(console.log);

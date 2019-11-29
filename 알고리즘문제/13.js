@@ -14,3 +14,10 @@ function isNotOverlapArray(array) {
 
 console.log(isNotOverlapArray([4, 1, 3, 2])); // true
 console.log(isNotOverlapArray([4, 1, 3]));    // false
+
+function isNotOverlapArray(array){
+  let anser=true;
+  const max=Math.max(...array);
+  answer=(max===array.length)?true:false;
+  return answer;
+}

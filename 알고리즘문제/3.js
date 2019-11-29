@@ -1,10 +1,15 @@
 function alphaString46(s) {
+  //1. if(!s)return false;
+  // return /^\d{4,6}$/.test(s);
 
-  const regexp = /^[0-9]{4,6}$/;
-  return regexp.test(s);
+
+  // 2.const regexp = /^[0-9]{4,6}$/;
+  // return regexp.test(s);
+
+  
+
   // console.log(typeof s);
-  // const aaa = s + '';
-
+  //3. const aaa = s + '';
   // if ((aaa.length === 4 || aaa.length === 6) && !isNaN(aaa)) {
   //   return true;
   // }

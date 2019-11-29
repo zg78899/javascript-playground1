@@ -1,11 +1,13 @@
 function evenOrOdd(num) {
   if(num%2==0){
-    return 'Even';
+    result='Even';
   }
   else{
-    return 'Odd';
+    result='Odd';
   }
-  }
+  return result;
+  
+}
   console.log(evenOrOdd(2)); // Even
   console.log(evenOrOdd(3)); // Odd
   console.log(evenOrOdd(1000)); // Even

@@ -8,10 +8,11 @@
 // }
 
 // console.log(average([5, 3, 4])); // 4
-function average(array) {
-  return array.reduce((pre, cur, i, self) => {
-    return i = self.length ? pre + cur / self.length : pre + cur;
-  }, 0);
-}
+// function average(array) {
+//   return array.reduce((pre, cur, i, self) => {
+//     return i = self.length ? pre + cur / self.length : pre + cur;
+//   }, 0);
+// }
 
-console.log(average([5, 3, 4])); // 4
+// console.log(average([5, 3, 4])); // 4
+

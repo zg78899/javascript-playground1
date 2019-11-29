@@ -5,24 +5,33 @@
 // 양의 정수는 뒷쪽에 있어야 한다. 단, 인수로 주어진 원본 배열은 변경되지 않아야 한다.
 // 예를 들어, [-1, 1, 3, -2, 2, 0]이 주어졌을 때, [-1, -2, 0, 1, 2, 3]를 반환한다.
 
+// function specialSort(array) {
+
+//   const testArray1 = [...testArray];
+
+//   return testArray1.sort(function (a, b) {
+//     for (let i = 0; i < testArray1.length; i++) {
+//       if (testArray1[i] < 0) {
+//         return (b - a);
+//       }
+
+//     }
+//   }
+// };
+
+
+
+// const testArray = [-1, 1, 3, -2, 2, 0];
+
+// console.log(testArray); // [ -1, 1, 3, -2, 2, 0 ]
+// console.log(specialSort(testArray)); // [ -1, -2, 0, 1, 2, 3 ]
+
+
+
 function specialSort(array) {
-
-  const testArray1 = [...testArray];
-
-  return testArray1.sort(function (a, b) {
-    for (let i = 0; i < testArray1.length; i++) {
-      if (testArray1[i] < 0) {
-        return (b - a);
-      } 
-        
-      }
-    }
-  });
-
-}
-
-
+  return array.sort();//sort는 기본적으로 오름차순이다.
+  };
 const testArray = [-1, 1, 3, -2, 2, 0];
 
 console.log(testArray); // [ -1, 1, 3, -2, 2, 0 ]
-console.log(specialSort(testArray)); // [ -1, -2, 0, 1, 2, 3 ]
+console.log(specialSort(testArray));

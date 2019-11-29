@@ -3,7 +3,8 @@
 // 입력받는 hideNumbers 함수를 완성하라 예를들어 s가 ‘01033334444’면 *******4444를 리턴하고,
 // ‘027778888’인 경우는 *****8888을 리턴한다.
 function hideNumbers(str) {
-  return str.replace(/\d(?=\d{4})/g,'*');
+  // return str.replace(/\d(?=\d{4})/g,'*');
+  return '*'.repeat(str.length-4)+str.slice(-4);
 }
 console.log(hideNumbers('01033334444')); // *******4444
 console.log(hideNumbers('027778888'));   // *****8888

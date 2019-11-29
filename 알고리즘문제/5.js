@@ -3,17 +3,39 @@
 // 예를 들어 s가 ‘hello world’라면 첫번째 단어는 ‘HeLlO’, 
 // 두번째 단어는 ‘WoRlD’로 바꿔 ‘HeLlO WoRlD’를 리턴한다.
 // 주의) 문자열 전체의 짝/홀수 인덱스가 아니라 단어(공백을 기준)별로 짝/홀수 인덱스를 판단한다.
-function toWeirdCase(s) {
-  
-  const strSplit = (s.split(' '));
-  console.log(strSplit)
-  for (let i = 0; i < s.length; i++) {
-    if (i % 2 === 0) {
-     return  s.toUpperCase();
-    }
-    console.log(s.length)
-  }
-}
+// function toWeirdCase(s) {
 
-console.log(toWeirdCase('hello world'));    // 'HeLlO WoRlD'
-console.log(toWeirdCase('my name is lee')); // 'My NaMe Is LeE'
+//   const strSplit = (s.split(' '));
+//   console.log(strSplit)
+
+//   for (let i = 0; i < s.length; i++) {
+//     if (i % 2 === 0) {
+//      return  s.toUpperCase(); 
+//     }
+//     console.log(s.length)
+//   }
+// }
+
+// console.log(toWeirdCase('hello world'));    // 'HeLlO WoRlD'
+// console.log(toWeirdCase('my name is lee')); // 'My NaMe Is LeE'
+
+function toWeirdCase(s) {
+  const splitWord = s.split(' ');
+  console.log(splitWord);
+  console.log(splitWord.length);
+  function toUpperlower(word) {
+    let res = '';
+    for (let i = 0; i < word.length; i++) {
+      res += i % 2 ? word[i].toLowerCase() : word[i].toUpperCase();//홀수이면 lowercase 짝수이면 uppercase;
+
+    }
+    return res;
+  }
+  for (let i = 0; i < splitWord.length; i++) {
+    splitWord[i] = toUpperlower(splitWord[i]);
+
+  }
+  return splitWord.join(' ');
+}
+console.log(toWeirdCase('hello world'));
+console.log(toWeirdCase('my name is lee'));

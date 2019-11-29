@@ -15,3 +15,5 @@ function sumDivisor(num) {
 }
 
 console.log(sumDivisor(12)); // 28
+
+

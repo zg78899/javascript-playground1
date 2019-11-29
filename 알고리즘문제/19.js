@@ -1,3 +1,5 @@
+import { isRegExp } from "util";
+
 // 19. 하샤드 수
 // 하샤드 수는 그 수의 각 자릿수 숫자의 합으로 그 수가 나누어지는 양의 정수를 말한다.
 // 양의 정수 x가 하샤드 수이려면 x의 자릿수의 합으로 x가 나누어져야 한다.
@@ -26,3 +28,19 @@ console.log(isHarshad(12)); // true
 console.log(isHarshad(18)); // true
 console.log(isHarshad(11)); // false
 console.log(isHarshad(13)); // false
+
+
+function isHarshad(n) {
+  let arr=n.toString();
+  let sum=0;
+
+  for(let i=0;i<arr.length;i++){
+    sum+=parseInt(arr[i]);
+  }
+  if(n%sum===0){
+    return true;
+
+  }else return false;
+}
+console.log(isHarshad(10));
+console.log(isHarshad(11)); // false // true
