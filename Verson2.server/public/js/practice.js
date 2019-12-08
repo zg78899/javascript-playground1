@@ -62,3 +62,17 @@ ajax.get('/todos')
   console.log(todos);
 
 })
+
+
+function isHarshad(n){
+  let arr=n.toString();
+  let sum=0;
+
+  for(let i=0<i<arr.length;i++){
+  sum+=parseInt(arr[i]);
+
+  if(n%sum)===0}{
+    return true;
+  }else return false;
+  
+}

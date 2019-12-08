@@ -20,14 +20,14 @@ console.log(nextSqaure(400));
 //   return Number.isInteger(root)?Math.pow((root)+1,2):'no');
 // }
 
-function nextSqaure(n){
-  if(Number.isInteger.Math.sqrt(n)){
-    return Math.pow(Math.sqrt(n)+1,2);
-  }
-  else{
-    return 'no';
-  }
-}
+// function nextSqaure(n){
+//   if(Number.isInteger.Math.sqrt(n)){
+//     return Math.pow(Math.sqrt(n)+1,2);
+//   }
+//   else{
+//     return 'no';
+//   }
+// }
 // function nextSqaure(n){
 //   var root=Math.sqrt(n);
 //   return Number.isInteger(root)?Math.pow((root)+1,2):'no';

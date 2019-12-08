@@ -18,16 +18,10 @@
 //     }
 //   }
 // };
-
-
-
 // const testArray = [-1, 1, 3, -2, 2, 0];
 
 // console.log(testArray); // [ -1, 1, 3, -2, 2, 0 ]
 // console.log(specialSort(testArray)); // [ -1, -2, 0, 1, 2, 3 ]
-
-
-
 function specialSort(array) {
   return array.sort();//sort는 기본적으로 오름차순이다.
   };

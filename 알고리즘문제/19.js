@@ -44,3 +44,24 @@ function isHarshad(n) {
 }
 console.log(isHarshad(10));
 console.log(isHarshad(11)); // false // true
+
+
+function numberOfPrime(n){
+  let result=0;
+  let arr=[];
+  for(let i=2;i<n;i++){
+    let devided=0;
+    for(let j=2;j<i;j++){
+      if(i%j===0){
+        devided+=1;
+      }
+    }
+    if(devided===0){
+      arr.push(i);
+    }
+  }
+  result=arr.length;
+  return result;
+
+}
+console.log(numberOfPrime(10));

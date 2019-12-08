@@ -8,23 +8,12 @@
 // [marina, josipa, nikola, vinko, filipa]	[josipa, filipa, marina, nikola]	vinko
 // [mislav, stanko, mislav, ana]	[stanko, ana, mislav]	mislav
 
-/**문제의 답 */
-function solution(participant, completion) {
-  participant.sort();
-  completion.sort();
-  for (let i = 0; i < participant.length; i++) {
-    if (participant[i] !== completion[i]) {
-      return participant[i];
-    }
-  }
-}
-
-/** 나의 풀이  */
-
+/** 나의 풀이  */ //단 문제는 이중 for문을 사용하였을때 효울성에서 시간이 초과한다.
 function solution (participant,completion){
 
   let part=participant.sort();
   let comple=completion.sort();
+  
   for(let i=0;i<part.length;i++){
     for(let j=0;j<comple.length;j++){
       if(part[i] === comple[j]){
@@ -35,3 +24,18 @@ function solution (participant,completion){
   }
   return part.join('');
 }
+
+/**문제의 답 */
+function solution(participant, completion) {
+
+  participant.sort();
+  completion.sort();
+
+  for (let i = 0; i < participant.length; i++) {
+
+    if (participant[i] !== completion[i]) {
+      return participant[i];
+    }
+  }
+}
+

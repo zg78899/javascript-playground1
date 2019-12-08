@@ -7,7 +7,7 @@ function digitSum(n) {
     if (n > 10000000) return false;
 
     result += (n % 10);
-    // n = parseInt(n / 10);
+    n = parseInt(n / 10);
   }
   return result;
 }
@@ -15,3 +15,4 @@ function digitSum(n) {
 console.log(digitSum(123));  // 6
 console.log(digitSum(987));  // 24
 console.log(digitSum(100000001));  // false
+

@@ -5,3 +5,8 @@ function getArray(arr) {
   return arr.filter((item) => item % 2 === 0 && item > 3);
 }
 console.log(getArray([1, 2, 3, 4, 5, 6])); // [ 4, 6 ]
+
+function getArray(arr) {
+return arr.filter(item=>item %2===0 && item>3);
+}
+console.log(getArray([1, 2, 3, 4, 5, 6])); // [ 4, 6 ]

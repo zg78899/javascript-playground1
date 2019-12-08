@@ -5,15 +5,18 @@
 
 
 function checkPalindrom(str) {
-  console.log(typeof str);
-  // for (let i = 0; i < str.length; i++) {
-  //   if (str[i] = s[i] && s[i]= s[i + 2]) {
-  //     str.include()
-
+  const middle = parseInt(str.length / 2);
+  console.log(middle);
+  for (let i = 0; i < middle; i++) {
+    if (str[i] !== str[str.length - i - 1]) {
+      return false;
     }
   }
+  return true;
+}
+console.log(checkPalindrom('dad')); // true
+console.log(checkPalindrom('mom')); // true
+console.log(checkPalindrom('palindrom')); // false
+console.log(checkPalindrom('s')); // true
 
-  console.log(checkPalindrom('dad')); // true
-  console.log(checkPalindrom('mom')); // true
-  console.log(checkPalindrom('palindrom')); // false
-  console.log(checkPalindrom('s')); // true
+  

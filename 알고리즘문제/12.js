@@ -2,6 +2,7 @@ function uniq(array) {
   return array.reduce((pre, cur, i, self) => {
 
     if (self.indexOf(cur) === i) {
+      console.log(self.indexOf(cur))
       pre.push(cur);
     }
     console.log(pre);

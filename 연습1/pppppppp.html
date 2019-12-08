@@ -58,17 +58,359 @@ const toggleCometed(e){
   if($list.children[2].id===e.target.id)return;
   if(!str) str=e.target.innertext;
 
-  e.
+
   e.target.innerText=e.target.innerText===str?'찍었다.':str;
 }
 $list.onclick=toggleCompleted();
 
-const $lists=document.querySelector('.post-list');
-let=str='';
-const toggleCompleted(e){
-  if($lists.children[i].id===e.target.id)return;
-  if(!str) str=e.target.innerText;
+const $lists=document.querySelector('.post-item');
 
-  e.target.innerText=e.target.innerText===str?'찍었다.':str;
+let str='';
+const toggleCometed=(e)=>{
+  const innerText=e.target.innerText;
+  const innerText=e.target;
+
+  if($lists.children[2].id === e.target.id)return;
+  if(!str) str=e.target.innerText;
+  
+  innerText=innerText===str?'찍었다.':str;
+
+  e.target.innerText=e.target.innerText===str?'찍었다':str;
+
+
+}
+
+$lists.onclick=toggleCompleted();
+
+
+var x=1;
+const y=2;
+
+funciton foo(){
+  var x=3;
+  const y=5;
+  funciton bar(){
+    console.log(x)
+  }
+  return bar;
+
+  const bar=foo();
+  bar();
+
+}
+
+var x=2;
+var result=(x%2)?"홀수":"짝수";
+console.log(result);
+
+var x=2,result;
+if(x%2){
+  return "홀수";
+}else{
+  return "짝수";
+}
+console.log(result);
+
+'CAT' && 'DOG'='DOG';
+
+var num=2;
+var kind;
+
+if(num>0)kind='양수';
+else if(num<0)kind='홀수';
+else kind=0;
+
+var num=2;
+var kind=num?(num>0?'양수':'음수'):0;
+console.log(kind);
+
+var num=2;
+var kind;
+if(n>0)kind='양수';
+else if(n<0)kind='음수';
+else kind=0;
+
+var num=2;
+var kind=num?(num>0?'양수':'음수'):0;
+
+
+var month=11;
+var monthName;
+
+switch(month){
+  case 1:monthName='JANAUARY';
+  break;
+  case2: monthName='fab';
+  break;
+  case 3: monthName='mar';
+  break;
+
+  default:
+
+}
+console.log(monthName);
+
+
+var year=2000;
+var month=11;
+var day;
+
+
+switch(month){
+  case 1:
+}
+
+
+for(let i=1;i<6;i++){
+  for(let j=1;j<6;j++){
+    if(i+j===6)console.log(`[${i}+${j}]`);
+  }
+}
+const a=0;
+while(a<10){
+  a++;
+
+}
+const a=0;
+while(true){
+  a++;
+  if(a===10)break;
+
+}
+
+
+var a=10;
+
+do{
+  console.log(a);
+  a++;
+}while(a<3){
+  console.log(a);
 
 };
+foo:{
+  console.log(1);
+  break foo;
+  console.log(2);
+
+}
+console.log('Done');
+
+outer:for(let i=0;i<6;i++){
+  for(let j=0;j<6;j++){
+    if(i+j===6)break outer;
+  }
+}
+console.log('Done');
+
+var string='Hello world';
+var index;
+
+for(var i=0;i<string.length;i++){
+  if(string[i]==='l'){
+    index=i;
+    break;
+  }
+}
+console.log(index);
+console.log(string.indexOf('l'));
+
+var string='Hello world';
+var count=0;
+for(var i=0;i<string.length;i++){
+  if(string[i]!=='l')continue;
+  count++;
+}
+console.log(count);
+console.log(string.match(/l/g).length);
+
+
+var string='Hello world';
+var count=0;
+for(var i=0;i<string.length;i++){
+  if(string[i]==='l')count++;
+}
+console.log(count);
+
+var string='hellow world';
+var count=0;
+for(var i=0;i<string.length;i++){
+  if(string[i] !== 'l')continue;
+  count++;
+}
+console.log(count);
+
+10.toString();
+10+'';
+
+function getStringLength(str){
+ str=str||''; return str;
+}
+getStringLength();
+getStringLength('Hello');
+
+function getStringLength(str=''){
+  return str.length;
+
+
+}
+getStringLength();
+getStringLength('Hello');
+
+function Person(name,gender){
+  this.name=name;
+  this.gender=gender;
+  this.satHello=funciton(){
+    console.log(`hi my name is ${this.name} gender is ${tis.gender}입니다`);
+  }
+}
+const person1=new Person('kim','male');
+const person2=new Person('Park','sex');
+
+var person={
+  name:'kim',
+  gender='male'
+  sayHello=funciton(){
+
+  }
+}
+var person=new Object();
+person.name='lee';
+person.gender='male'
+person.sayHello=funciton(){
+
+}
+
+function Person(name,gender){
+var married=ture;
+this.name=name;
+this.gender=gender;
+this.sayHello=funciton(){
+  console.log(`hihi`)
+}
+}
+const person1=new Person('kim','male');
+console.log(person1.name);
+console.log(person1.gender);
+console.log(person1.married)
+const array=[1,2,3];
+array.name='kim';
+for(const value of array){
+  console.log(value);
+
+}
+for(const [index,value] of array.entries()){
+  console.log(index,value);
+
+
+  const obj={a:1};
+ const copy=Object.assian({},obj);
+ console.log(copy)//copy={a:1};
+ console.log(obj=== copy)//false;
+
+
+ const user1={
+   name:'kim',
+   address:{
+     city:'seoul';
+
+   }
+ };
+ 
+
+ const uers2=Object.assian({},user1);
+ console.log(user1===user2);//false;
+ console.log(user1.address===user2.address)// true;
+ user1.address.city='busan';
+
+
+
+}
+
+const user1={
+  name:'lee',
+  address:{
+    city:'seoul'
+  }
+};
+const user2=Object.assign({},user1,{name:'Kim'});
+console.log(user.name);
+console.log(user2.name);
+
+Object.freeze(user1);
+user1.name='Kim';//무시된다.
+
+console.log(user1);
+console.log(Object.isFrozen(user1));
+
+const user={
+  name:'lee',
+  address:{
+    city:'seoul'
+  }
+};
+Object.freeze(user);
+user.address.city='Busan';
+console.log(user);//{ name:'Lee',address:{city:'Busan'}};
+
+
+function deepFreezs(obj){
+  const props=Object.getOwnPropertyNames(obj);
+
+  props.forEach((name)=>{
+    const prop=obj[name];
+    if(typeof prop ==='object' && prop !== null){
+      deepFreeze(prop);
+    }
+  });
+  return Object.freeze(obj);
+}
+
+const user={
+  name:'Lee',
+  address:{
+    city:'seoul'
+  }
+};
+deepFreeze(user);
+
+user.name='Kim';
+user.address.city='Busan';
+
+console.log(user);
+
+
+class ShoppingList extends React.Component {
+  reder(){
+    return (
+      <div clasName='shopping-list'>
+        <h1>Shopping list for{this.prps.name}</h1>
+        <ul>
+          <li>Instagram</li>
+          <li>WhatsApp</li>
+          <li>Oculus</li>
+        </ul>
+      </div>
+    );
+  }
+}
+return React.createElement('div',{className:'shopping-list'},
+React.createElement('h1',),
+React.createElement('ul',));
+
+class Board extends React.Component{
+  renderSquare(i){
+    return <Square value={i}/>;
+
+  }
+}
+class Square extends React.Component{
+  redner(){
+    return (
+      <button className="square">
+        {thi.props.value}
+      </button>
+    );
+  }
+}
+

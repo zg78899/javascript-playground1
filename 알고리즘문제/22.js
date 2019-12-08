@@ -10,3 +10,12 @@ function adjacentElementsProduct(arr) {
 }
 
 console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3])); // 21
+
+
+function adjacentElementsProduct(arr) {
+  
+  for(let i=0;i<arr.length-1;i++){
+    return Math.max(arr[i]*arr[i+1])
+  }
+}
+console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3])); // 21

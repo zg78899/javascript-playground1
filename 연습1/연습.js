@@ -1,6 +1,16 @@
-const uniq=[2,1,2,3,4,3,4];
-console.log(uniq.indexOf(2));
-console.log(uniq.indexOf(1));
-console.log(uniq.indexOf(3));
-console.log(uniq.indexOf(4));
+
+function solution(d, budget) {
+  let sum = 0;
+  let count = 0;
+  d.sort();
+  for (let i = 0; i < d.length; i++) {
+    count++;
+    sum += d[i];
+    if (sum > budget) {
+      count--;
+      break;
+    }
+  }
+  return count;
+}
 

@@ -5,6 +5,9 @@
 function hideNumbers(str) {
   // return str.replace(/\d(?=\d{4})/g,'*');
   return '*'.repeat(str.length-4)+str.slice(-4);
+  
+  
 }
+console.log(str.slice(-4));
 console.log(hideNumbers('01033334444')); // *******4444
 console.log(hideNumbers('027778888'));   // *****8888

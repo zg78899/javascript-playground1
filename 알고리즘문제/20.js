@@ -21,3 +21,4 @@ function generateRange(from,to){
   return res;
 }
 console.log(generateRange(10,15));
+

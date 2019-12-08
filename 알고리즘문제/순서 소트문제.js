@@ -3,7 +3,7 @@ function solution(n) {
   let answer = arr.split('');
   answer = answer.sort().reverse();
   const result = answer.join('');
-  console.log(result);
-  return result;
+  console.log(typeof result);
+  return parseInt(result);
 }
 solution(112312836);
