@@ -144,3 +144,169 @@ console.log('다음 작업');
 
 
 
+function wor(callback){
+
+  setTimeout(()=>{
+    const start=Date.now();
+    for(let i=0;i<100000000;i++){
+  
+    }
+    const end=Date.now();
+    console.log(end-start+'ms');
+    callback(end-start)
+  },0)
+}
+console.log('작업시작');
+work((ms)=>{//ms는 callback의 매개변수로 들어온다.
+  console.log('작업이 끝났어요');
+  console.log(ms+'ms 걸렸다고 해요');
+
+});
+
+console.log('다음 작업');
+
+//ajax web API요청 /파일읽기 /암호화/복호화/ 작업예약에서비동기 처리를 사용한다.
+/** Promise *///비동기 처리 예전에는 콜백함수를 사용하여 비동기 처리를 하였다, 그러나 콜백함수가 많이 사용되면 콜백 헬이 발생하게 된다.
+
+function inceaseAndPrint(n,callback){
+  setTimeout(()=>{
+    const incease=n+=1;
+    console.log(incease);
+    if(callback){
+      callback(incease)
+    }
+
+  },1000);
+}
+
+inceaseAndPrint(0,n=>{
+  inceaseAndPrint(n,n=>{
+   inceaseAndPrint(n,n=>{
+     console.log('작업 끝')
+   })
+  })
+});
+
+const promise =new Promise((resolve,reject)=>{
+  //작업을 구현 성공 실패
+  setTimeout(()=>{
+    reject(new Error());
+  },1000);
+})
+promise.then(result=>{
+  console.log(result);
+}).catch(e=>{
+  console.error(e);
+});
+
+function inceaseAndPrint(){
+  return new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      const value=n+1;
+      if(value===5){
+        const error=new Error();
+        error.name="ValluisFail";
+        reject(error);
+        return;
+      }
+      console.log(value);
+      resolve(value);
+    },1000);
+  })
+}
+inceaseAndPrint(0).then(n=>{
+  return inceaseAndPrint(n);
+}).then(n=>{
+  return increaseAndPrint(n)
+}).then(n=>{
+  return increaseAndPrint(n)
+}).then(n=>{
+  return inceaseAndPrint(n);
+}).catch(e=>{
+  console.error(e);
+})
+//위 와 같은 표현이다.
+inceaseAndPrint(0).then(increaseAndPrint)
+ .then(increaseAndPrint)
+ .then(increaseAndPrint)
+ .then(increaseAndPrint)
+.catch(e=>{
+  console.error(e);
+})
+//에러를 잡을 때 어떤 부분에서 에러가 일어났는지 알기 어렵고,then으로 처리하기 때문에 분기 처리가 어렵고
+// 때문에 async await을 사용한다.
+
+/** async await */
+function sleep(ms){
+  return new Promise(resolve=>setTimeout(resolve,ms));
+}
+function makeError(){
+  await sleep(1000);
+  const error=new Error();
+  throw error;
+}
+async function process(){
+  try{
+    await makeError();
+
+  }catch(e){
+    console.error(e)
+  }
+}
+process();
+
+function sleep(ms){
+  return new Promise(resolve=>setTimeout(resolve,ms));
+}
+
+async function process(){
+ 
+}
+process();
+
+/** Promise.all-여러개들중 하나라도 에로가 발생하면 try,catch로 에러를 잡을 수있다.
+ *  and Promise.race-그러나 Promise.race는 가장 먼저 끝난 결과값에 에러가 발생하지않으면 에러가 발생한것으로 간주하지않는다. */
+
+function sleep(ms){
+  return new Promise(resolve=>setTimeout(resolve,ms));
+};
+const a=async ()=>{
+  await sleep(1000);
+  return 'a';
+}
+const b=async ()=>{
+  await sleep(500);
+  return 'b';
+}
+const c=async ()=>{
+  await sleep(3000);
+  return 'c';
+
+}
+async function proess(){
+  try{
+    const {a,b,c}}=Promise.all([a(),b(),c()]);//셋중하나라도 에러가 발생하면 다름으로 못넘어간다.
+  }catch(e){
+    console.error(e);
+  }
+  console.log(result);// 한꺼번에 뮦어서 다음 처럼 나타낸다.실제로 이는 3초 걸렸다.
+  console.log(a);
+  console.log(b);
+  console.log(c);
+}
+async function proess(){
+  const first =Promise.race([a(),b(),c()]);
+  console.log(first);// 가장 빨리 끝난 결과물이 된다.
+  //에로가 발생했을때도 가장 빨리 발생하는 값의 에러가 아니면 에로가 발생한 것으로 간주하지 않는다.
+
+}
+process();
+
+
+
+
+
+
+
+
+
