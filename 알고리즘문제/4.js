@@ -1,5 +1,5 @@
 function numPY(s) {
-  if (!s) return true;
+  
   console.log(typeof s);
 
   const target = s.toLowerCase();

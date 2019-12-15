@@ -24,21 +24,21 @@ function numberOfPrime(n) {
 console.log(numberOfPrime(10)); // 4
 
 
-function sleep(ms){
-return new Promise(resolve=>setTimeout(resolve,ms));
+// function sleep(ms){
+// return new Promise(resolve=>setTimeout(resolve,ms));
 
-};
-function makeError(){
-  await sleep(1000);
-  const error=new Error();
-  throw error;
-}
-async function process(){
-  try{
-    await makeError();
+// };
+// function makeError(){
+//   await sleep(1000);
+//   const error=new Error();
+//   throw error;
+// }
+// async function process(){
+//   try{
+//     await makeError();
 
 
-  }catch(e){
-    console.error(e)
-  }
-}
+//   }catch(e){
+//     console.error(e)
+//   }
+// }
