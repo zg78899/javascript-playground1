@@ -19,21 +19,37 @@
 // console.log(toWeirdCase('hello world'));    // 'HeLlO WoRlD'
 // console.log(toWeirdCase('my name is lee')); // 'My NaMe Is LeE'
 
-function toWeirdCase(s) {
-  const splitWord = s.split(' ');
-  console.log(splitWord);
-  console.log(splitWord.length);
-  function toUpperlower(word) {
-    let res = '';
-    for (let i = 0; i < word.length; i++) {
-      res += i % 2 ? word[i].toLowerCase() : word[i].toUpperCase();//홀수이면 lowercase 짝수이면 uppercase;
+// function toWeirdCase(s) {
+//   const splitWord = s.split(' ');
+//   console.log(splitWord);
+//   console.log(splitWord.length);
+//   function toUpperlower(word) {
+//     let res = '';
+//     for (let i = 0; i < word.length; i++) {
+//       res += i % 2 ? word[i].toLowerCase() : word[i].toUpperCase();//홀수이면 lowercase 짝수이면 uppercase;
 
+//     }
+//     return res;
+//   }
+//   for (let i = 0; i < splitWord.length; i++) {
+//     splitWord[i] = toUpperlower(splitWord[i]);
+
+//   }
+//   return splitWord.join(' ');
+// }
+function toWeirdCase(s) {
+  let splitWord = s.split(' ');
+  function toUpperLowerCase(word) {
+    let result = '';
+    for (let i = 0; i < word.length; i++) {
+      result += i % 2 ? word[i].toupperCase() : word[i].toLowerCase();
     }
-    return res;
+    return result;
+
   }
   for (let i = 0; i < splitWord.length; i++) {
-    splitWord[i] = toUpperlower(splitWord[i]);
-
+    console.log(splitWord[i]);
+    splitWord[i] = toUpperLowerCase(splitWord[i]);
   }
   return splitWord.join(' ');
 }

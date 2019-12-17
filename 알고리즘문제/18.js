@@ -16,3 +16,22 @@ console.log(digitSum(123));  // 6
 console.log(digitSum(987));  // 24
 console.log(digitSum(100000001));  // false
 
+//각 자리 수 더하기 문제
+// function solution(n) {
+//   let sum = 0;
+//   let str = n.toString();
+//   for (let i = 0; i < str.length; i++) {
+//     sum += parseInt(str[i])
+//   }
+//   return sum;
+// }
+function solution(n) {
+  let result = 0;
+  while (n > 0) {
+    if (n > 10000000) return false;
+    result += (n % 10);
+    n = parseInt(n / 10);
+  }
+  return result;
+
+}
