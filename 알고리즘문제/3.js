@@ -1,12 +1,12 @@
 function alphaString46(s) {
+
+  return /^[0-9]{4}$/.test(s) || /^[0-9]{6}$/.test(s);
+
   //1. if(!s)return false;
   // return /^\d{4,6}$/.test(s);
-
-
+  
   // 2.const regexp = /^[0-9]{4,6}$/;
   // return regexp.test(s);
-
-  
 
   // console.log(typeof s);
   //3. const aaa = s + '';
