@@ -7,3 +7,4 @@ function solution(n) {
   return parseInt(result);
 }
 solution(112312836);
+funci
