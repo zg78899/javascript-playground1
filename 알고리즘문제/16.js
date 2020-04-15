@@ -7,19 +7,18 @@
 function numberOfPrime(n) {
   let result = 0;
   let arr = [];
-  for (let i = 2; i < n; i++) {
+  for (let i = 2; i <= n; i++) {
     let devided = 0;
     for (let j = 2; j < i; j++) {
       if (i % j === 0) {
-        devided += 1;
+        ++devided ;
       }
     }
     if (devided === 0) {
       arr.push(i);
     }
   }
-  result = arr.length;
-  return result;
+  return result = arr.length;
 }
 console.log(numberOfPrime(10)); // 4
 
@@ -42,3 +41,42 @@ console.log(numberOfPrime(10)); // 4
 //     console.error(e)
 //   }
 // }
+
+
+
+
+function solution(n){
+  let answer=0;
+  let arr=[];
+  for(let i =2;i<=n;i++){
+    for(let j=2;j<i;j++){
+      if(i % j ===0){
+        if(!arr.includes(i)){
+          arr.push(i);
+        }
+      }
+    }
+  }
+  return n-1-arr.length;
+}
+console.log(solution(10));
+
+
+function solution(n){
+  const primes=[];
+  for(let i=2;i<=n;i++){
+    let isPrime = true;
+    const sqrt = Math.sqrt(i);
+    for(let j = 0 ;primes[j]<=sqrt;j++){
+      if(i % primes[j] === 0){
+        isPrime =false;
+        break;
+      }
+    }
+    if(isPrime){
+      primes.push(i);
+    }
+  }
+  return primes.length;
+}
+console.log(solution(10));

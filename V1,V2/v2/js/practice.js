@@ -13,7 +13,7 @@ const render =()=> {
   let html = '';
 
   //필터가 복사이다.
-const _todos=todos.filter(({completed})=>(navSatate==='all' ? true :(navState==='active'? !completed : completed));
+const _todos=todos.filter(({completed})=>(navSatate==='all' ? true :(navState==='active'? !completed : completed))
 
   todos.forEach(todo => {
     html += `
@@ -21,8 +21,7 @@ const _todos=todos.filter(({completed})=>(navSatate==='all' ? true :(navState===
       <input class="checkbox" id="ck-${todo.id}" type="checkbox"${todo.completed ? 'checked' : ''}>
       <label for="ck-${todo.id}">${todo.content}</label>
       <i class="remove-todo far fa-times-circle"></i>
-    </li>`;
-    
+    </li>`;  
   });
 
   $todos.innerHTML = html;
