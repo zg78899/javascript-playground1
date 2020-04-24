@@ -25,6 +25,24 @@ function solution (participant,completion){
   return part.join('');
 }
 
+
+function solution(participant,completion){
+   let part = participant.sort();
+   let comple = completion.sort();
+
+   for(let i =0;i<part.length;i++){
+     for(let j =0;i<comple.legth;j++){
+       if(part[i]  === comple[i]){
+         part.splice(part[i],1);
+       }else{
+         return part[i];
+       }
+     }
+   }
+   return part.join('');
+}
+
+
 /**문제의 답 */
 function solution(participant, completion) {
 
@@ -38,4 +56,15 @@ function solution(participant, completion) {
     }
   }
 }
+
+function solution (participant,completion){
+ 
+  participant.sort();
+  completion.sort();
+  for(let i =0;i<participant.length ;i++){
+    if(participant[i] !== completion[i]) return participant[i];
+  }
+
+}
+
 

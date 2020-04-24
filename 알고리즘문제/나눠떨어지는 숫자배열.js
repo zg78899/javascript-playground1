@@ -16,3 +16,24 @@ function solution(a,b){
   if(res.length === 0)res.push(-1);
   return res;
 }
+
+function solution(arr,divisor){
+  let res =[];
+  for(let i =0;i<arr.length;i++){
+   if(arr[i] % divisor ===0){
+       res.push(arr[i]);
+   }
+  }
+  res.sort((a,b)=>a-b);
+  if(res.length === 0){
+  res.push(-1);    
+  
+  return res;
+}
+function solution(arr,divisor){
+  let res=[];
+  arr.map((item)=>{
+    item % divisor ===0 && res.push(item);
+  });
+  return res.length ? res.sort((a,b)=>a-b):[-1];
+}

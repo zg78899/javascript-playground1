@@ -14,8 +14,6 @@ function solution(d,budget){
 }
 
 function solution(d,budget){
-  
-  
   const list = d.sort((a,b)=>a-b);
   let count =0;
 
@@ -25,5 +23,6 @@ function solution(d,budget){
       count++;
     }
   }
+  
   return count;
 }

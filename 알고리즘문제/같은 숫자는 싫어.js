@@ -18,3 +18,7 @@ function solution(arr) {
 //i=0,1,2,3,4,5,6;
 //1.문제를 풀기위해서 indexOf를 사용하여 arr.indexOf(v) 를 사용하여 해결하려고 했지만 마지막1은 해결하지못했다.
 //
+
+function solution(arr){
+return arr.filter((a,i)=> a!==arr[i+1] )
+}

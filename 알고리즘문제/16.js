@@ -80,3 +80,17 @@ function solution(n){
   return primes.length;
 }
 console.log(solution(10));
+
+
+
+function solution(arr){
+  const result = arr.reduce((pre,cur,i,{length})=>{
+      return i = length -1 ? pre+cur/length : pre+cur;
+  },0);
+  return result;
+}
+
+function solution(number){
+  return '*'.repeat(number.length -4)+number.slice(-4);
+}
+

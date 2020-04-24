@@ -16,3 +16,8 @@ console.log(solution("Zbcdefg"));
 // function solution(n){
 //   return s.split('').reverse().join('');
 // }은 안된다.
+
+function solution(s){
+  return s.split('').sort().reverse().join('');
+  
+}

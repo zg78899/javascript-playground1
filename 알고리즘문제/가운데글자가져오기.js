@@ -8,4 +8,8 @@ function solution(s) {
       return s[m - 1] + s[m];
   }
 
-}
+
+  function solution (s){
+    const m = Math.floor(s.length / 2);
+     return s.length %2 ? s[m] : s[m -1],s[m];
+    }

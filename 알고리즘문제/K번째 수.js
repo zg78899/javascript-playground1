@@ -39,9 +39,9 @@ solution([1, 5, 2, 6, 3, 7, 4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]]);
 
 
 function solution(array,commands){
-  let answer = [];
- const result =commands.forEach((a,r,i)=>{
-   array.slice(a[1],a[2]).sort(a[3])
- });
- return answer.push(result);
+  let answer=[];
+  answer= commands.map(c=>{
+  return array.slice(c[0]-1,c[1]).sort((a,b)=>a-b)[c[2]-1]
+});
+  return answer;
 }

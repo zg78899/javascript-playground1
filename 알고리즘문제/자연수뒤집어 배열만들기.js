@@ -262,7 +262,7 @@ function solution (n){
 }
 
 function solution(answer) {
-  let result=[];
+  
   let list =[
     [1,2,3,4,5],
     [2,1,2,3,2,4,2,5],
@@ -285,14 +285,68 @@ function solution(answer) {
   let max = Math.max(...count);
   for(let j=0;j<count.length;j++ ){
     let res =[];
-    res.push(j+1);
-    r
-
+    if(count === max){
+      res.push(j+1);
+    }
   }
-
-  return result;
-
-
-  
+  return res;  
 }
 console.log(solution([1,2,3,4,4,5]))
+
+
+function solution(n){
+  let list =[
+    [1,2,3,4,5],
+    [2,1,2,3,2,4,2,5],
+    [3,3,1,1,2,2,4,4,5,5]
+  ];
+let count =[0,0,0];
+for (let i =0;i<n.lnegth;i++){
+  if(answer[i] === list[i][i % list[1].length] ){
+    count[0]++;
+  }
+  if(answer[i] === list[i][i%list[2].length]){
+    count[1]++;
+  }
+  if(answer[i] === list[i][i % list[2].length]){
+    count[2]++;
+
+  }
+}
+let max = Math.max(...count);
+for(let i =0;i<count.length;i++){
+  let res=[];
+  if(max === count[i]){
+    res.push(i+1);
+  }
+}
+return res;
+}
+
+function solution(answer){
+  let list=[
+    [1,2,3,4,5],
+    [2,1,2,3,2,4,2,5],
+    [3,3,1,1,2,2,4,4,5,5]
+  ];
+let count =[0,0,0];
+for(let i =0 ;i<answer.length;i++){
+  if(answer[i] === list[i][i % list[0].length]){
+    count[0]++;
+  }
+  if(answer[i] === list[i][i % list[1].length]){
+    count[1]++;
+  }
+  if(answer[i] === list[i][i % list[2].length]){
+    count[2]++;
+  }
+}
+let max = Math.max(...count);
+for(let j=0;j<count.length;j++){
+  let res=[];
+  if(max === count[i]){
+    res.push(j+1);
+  }
+}
+return res;
+}
