@@ -49,7 +49,7 @@ function solution(N, stages) {
       for (let j = 0; j < stagesSize; j++) {
           if (stages[j] === i) {
               top++;
-              // bottom++;
+              bottom++;
           }
           else if (stages[j] > i) {
               bottom++;
