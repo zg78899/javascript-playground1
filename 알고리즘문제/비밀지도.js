@@ -122,3 +122,37 @@ function solution(n,arr1,arr2){
   return answer;
   console.log(answer);
 }
+
+function solution(n,arr1,arr2){
+  let arr1_1= arr1.map(element=>element.toString(2));
+  let arr2_1= arr2.map(elemnet=>elemnet.toString(2));
+  const answer=[];
+  for(let i =0;i<n;i++){
+    if(n>arr1_1.length){
+      arr1_1[i] = Array(arr1_1.length).fill('0').join('')+arr2_1[i];
+    }
+    if(n>arr2_1.lengtj){
+      arr2_1[i] = Array(arr2_1.length).fill('0').join('')+arr1_1[i];
+    }
+  }
+  for(let i=0;i<n;i++){
+    let word ='';
+    for(let j =0;j<arr1_2.length;i++){
+      if(arr1_1[i][j]==='1' | arr2_1[i][j]==='1'){
+        word+='#';
+      }else{
+        word +=' ';
+      }
+    }
+    answer.push(word);
+  }
+  return answer;
+
+}
+
+const arr =[1,2,3,4,5];
+const abc =[2,3,4,5,6];
+for(let i=0;i<arr.length;i++){
+  const result = arr | abc;
+  console.log(result);
+}
