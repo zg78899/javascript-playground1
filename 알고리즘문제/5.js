@@ -3,21 +3,29 @@
 // 예를 들어 s가 ‘hello world’라면 첫번째 단어는 ‘HeLlO’, 
 // 두번째 단어는 ‘WoRlD’로 바꿔 ‘HeLlO WoRlD’를 리턴한다.
 // 주의) 문자열 전체의 짝/홀수 인덱스가 아니라 단어(공백을 기준)별로 짝/홀수 인덱스를 판단한다.
-// function toWeirdCase(s) {
 
-//   const strSplit = (s.split(' '));
-//   console.log(strSplit)
+function toWeirdCase(s) {
+  let result ='';
+  const strSplit = s.split(' ');
+  console.log(strSplit)
+  
 
-//   for (let i = 0; i < s.length; i++) {
-//     if (i % 2 === 0) {
-//      return  s.toUpperCase(); 
-//     }
-//     console.log(s.length)
-//   }
-// }
+  for (let i = 0; i < strSplit.length; i++) {
+    result =result+' ';
+    for(let j =0;j < strSplit[i].length;j++){
+      if(j % 2 === 0){
+        result +=strSplit[i][j].toUpperCase();
+      }else{
+        result +=strSplit[i][j].toLowerCase();
+      }
+    }
+  }
+  return result;
+  
+}
 
-// console.log(toWeirdCase('hello world'));    // 'HeLlO WoRlD'
-// console.log(toWeirdCase('my name is lee')); // 'My NaMe Is LeE'
+console.log(toWeirdCase('hello world'));    // 'HeLlO WoRlD'
+console.log(toWeirdCase('my name is lee')); // 'My NaMe Is LeE'
 
 // function toWeirdCase(s) {
 //   const splitWord = s.split(' ');
@@ -37,21 +45,22 @@
 //   }
 //   return splitWord.join(' ');
 // }
-function toWeirdCase(s) {
-  let splitWord = s.split(' ');
-  function toUpperLowerCase(word) {
-    let result = '';
-    for (let i = 0; i < word.length; i++) {
-      result += i % 2 ? word[i].toupperCase() : word[i].toLowerCase();
-    }
-    return result;
 
-  }
-  for (let i = 0; i < splitWord.length; i++) {
-    console.log(splitWord[i]);
-    splitWord[i] = toUpperLowerCase(splitWord[i]);
-  }
-  return splitWord.join(' ');
-}
-console.log(toWeirdCase('hello world'));
-console.log(toWeirdCase('my name is lee'));
+// function toWeirdCase(s) {
+//   let splitWord = s.split(' ');
+//   function toUpperLowerCase(word) {
+//     let result = '';
+//     for (let i = 0; i < word.length; i++) {
+//       result += i % 2 ? word[i].toupperCase() : word[i].toLowerCase();
+//     }
+//     return result;
+
+//   }
+//   for (let i = 0; i < splitWord.length; i++) {
+//     console.log(splitWord[i]);
+//     splitWord[i] = toUpperLowerCase(splitWord[i]);
+//   }
+//   return splitWord.join(' ');
+// }
+// console.log(toWeirdCase('hello world'));
+// console.log(toWeirdCase('my name is lee'));

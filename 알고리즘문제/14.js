@@ -6,18 +6,22 @@ function findDuplicated(array) {
 
 console.log(findDuplicated([1, 2, 3, 4, 1, 2, 3])); // [ 1, 2, 3 ];
 
-
-const $lists=document.querySelector('.post-item');
-let str='';
-
-const toggleComted(e){
-
-const innerText=e.target.innerText;
-if($lists.chiedren[i].id===e.target.id)return;
-if(!str) str=e.target.innerText;
-
-e.tagerget.innerText=innerText===str?'찍었다.':str;
+function findDuplicated(array){
+  return array.filter((v,i,self)=>self.indexOf(v) !== i);
 }
 
 
-$lists.onclick=toggleComted();
+// const $lists=document.querySelector('.post-item');
+// let str='';
+
+// const toggleComted(e){
+
+// const innerText=e.target.innerText;
+// if($lists.chiedren[i].id===e.target.id)return;
+// if(!str) str=e.target.innerText;
+
+// e.tagerget.innerText=innerText===str?'찍었다.':str;
+// }
+
+
+// $lists.onclick=toggleComted();

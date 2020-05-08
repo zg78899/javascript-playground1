@@ -53,6 +53,16 @@ return answer;
 }
 console.log(solution(5,[9, 20, 28, 18, 11],[30, 1, 21, 17, 28]));
 
+function solution(n.arr1,arr2){
+  const asnwer=[];
+  for(let i =0;i<n;i++){
+    let result_arr = arr1[i] |arr2[i];
+    asnwer.push(result_arr.toString(2).padStart(n,'0').replace(/1/g,"#").replace(/0/g,' '));
+
+  }
+  return asnwer;
+}
+
 
 function solution(n, arr1, arr2) {
   var answer = [];

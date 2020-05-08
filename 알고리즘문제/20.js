@@ -10,7 +10,6 @@ function generateRange(from, to) {
   }
   return res;
 }
-
 console.log(generateRange(10, 15)); // [ 10, 11, 12, 13, 14, 15 ]
 
 function generateRange(from,to){

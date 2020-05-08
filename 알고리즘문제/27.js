@@ -79,3 +79,10 @@ console.log(getDayName(5, 24)); // TUE
 
 // //아래 코드는 테스트를 위한 코드입니다.
 // console.log(getDayName(5,24));
+
+
+function uniq(array) {
+  return array.filter((v, i, self) => )
+}
+
+console.log(uniq([2, 1, 2, 3, 4, 3, 4])); // [2, 1, 3, 4]
