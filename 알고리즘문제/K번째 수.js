@@ -45,3 +45,25 @@ function solution(array,commands){
 });
   return answer;
 }
+
+
+function solution(array,commands){
+  let res=[];
+  res.map(c=>{
+    array.slice(c[0],c[1]-1).sort((a,b)=>a-b)[c[2]-1];
+  });
+  return res;
+};
+
+function solution(array,commands){
+  let res =[];
+for(let i = 0;i<commands.length;i++){
+  let frist =commands[i][0];
+  let second = commands[i][1];
+  let thrid = commands[i][2];
+  
+  let answer = array.slice(frist,second -1);
+  res.push(answer[third -1]);
+}
+return res;
+}

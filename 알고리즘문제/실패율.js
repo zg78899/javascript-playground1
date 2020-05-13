@@ -3,15 +3,15 @@ function solution(N, stages) {
   let answer=[];
   let failRate =0;
   let count =0;
-  let length = stages.length -count;
+  let length = stages.length - count;
   for(let i =1;i<=N;i++){
-       count = stages.filter(c=>c === i).length;
+       count = stages.filter(c => c === i).length;
       if(i === 1){
-          failRate =count / length;
-          length -=count;   
+          failRate = count / length;
+          length -= count;   
       }else{
         failRate = count /(length);
-        length -=count;
+        length -= count;
       } 
     rates.push(
       {rate:failRate,
@@ -25,6 +25,13 @@ function solution(N, stages) {
     }
     return b.rate -a.rate;
   });
+
+  rates.sort((a,b)=>{
+    if(a.rate === b.rate){
+      return a.stage - b.stage;
+    }
+    return b.rate - a.rate
+  })
   
 
   for(let i=0;i<rates.length;i++){
