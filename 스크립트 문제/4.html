@@ -42,6 +42,7 @@
     <div class="display">00:00:00</div>
     <button class="control">Start</button>
   </div>
+
   <script>
     const $button = document.querySelector('.control');
     const $display = document.querySelector('.display');
@@ -82,6 +83,80 @@
       $display.innerHTML = 
       `${min < 10 ? '0' + min : min}:${sec < 10 ? '0' + sec : sec}:${mil < 10 ? '0' + mil : mil}`;
     }
+  </script>
+  <script>
+    const $button = document.querySelector('.container');
+    const $display = document.querySelector('.display');
+
+    let mil =0;
+    let sec = 0;
+    let min =0;
+    let timer ;
+
+    $button.onclick=(e)=>{
+    if(e.target.textContext === 'Start'){
+      e.target.textContent = 'Stop';
+      timer = setInterval(Start,10);
+    }else if(e.target.textContent === 'Stop'){
+      e.target.textContext = 'Start';
+      clearInterval(timer)
+    }
+    }
+    function Start(){
+        if(mil <= 98){
+          if(mil <10){
+            mil= '0'+mil;
+          }else{
+            mil++;
+          }
+        }else if(mil >=99){
+          mil = 0;
+
+        }if(sec >= 60){
+          sec = 0;
+          min++;
+        }
+        $display.innerHTML =`${min < 10 ? '0'+min : min}:${sec < 10 ? '0'+sec :sec } :${mil <10 ? '0'+ mil :mil}`;
+    }
+    const $button = document.querySelector('.button');
+    const $display = document.querySelector('.display');
+
+    let mil = 0;
+    let sec =0;
+    let min = 0;
+    let timer;
+
+    $button.onclick=(e)=>{
+      if(e.target.textContent === 'Start'){
+        e.target.textContent = 'Stop';
+        timer = setInterval(Start,10);
+      }else if(e.target.textContent === 'Stop'){
+        e.target.textContent = 'Start';
+        clearInterval(timer);
+      }
+    }
+    function Start(){
+      if(mil <= 98){
+        if(mil > 10){
+          mil = '0'+mil;
+        }else{
+          mil++
+        }
+      }else if(mil >= 99){
+        mil = 0;
+        
+      }if(sec >= 60){
+        sec = 0;
+        min ++;
+      }
+      $display.innerHTML = `${min < 10 ? '0'+min : min}:${sec < 10 ? '0'+sec :sec } :${mil <10 ? '0'+ mil :mil}`;
+    }
+
+    const $button = document.querySelector('.button')
+
+
+    
+
   </script>
 </body>
 
