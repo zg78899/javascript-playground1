@@ -57,3 +57,75 @@ function solution(array, commands) {
   console.log(result);
 }
 solution([1, 5, 2, 6, 3, 7, 4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]]);
+
+
+function solution(array,commands){
+  let result =[];
+  for(let i =0;i<commands.length;i++){
+      let frist =commands[i][0];
+      let second = commands[i][1];
+      let third = commands[i][2];
+
+      let filter = array.slice(frist -1,second -1);
+      let sorted = filter.sort((a,b)=>a-b);
+      result.push(sorted[third -1]);
+  }
+}
+
+var string ='hello';
+var search ='l';
+var count = 0;
+
+for(var i =0;i<string.length;i++){
+  if(serach !== string) continue;
+  count++;
+}
+
+console.log(count);
+
+const regex = new RegExp(serach,'g');
+console.log(string.match(regexp).length);
+
+
+function solution(n,lost,reserve){
+
+  let student = Array(n).fill(1);
+
+  for(let i =0;i<lost.length;i++){
+    const index = lost[i] - 1;
+    student[index] -=1;
+  }
+  for(let i =0;i<reserve.length;i++){
+    const index = reserve[i] -1;
+    student[index] +=1;
+  }
+  for(let i =0;i<student.length;i++){
+    if(i !== 0 && student[i] === 0 ){
+      if(student[i-1] === 2){
+        student[i-1] --;
+        student[i]++;
+        continue;
+      }
+      if(i !== student.length -1 && student[i]===0){
+        if(student[i+1] ===2){
+          student[i+1]--;
+          student[i]++;
+        }
+      }
+    }
+  }
+  return student.filter(i=>i>=0).length;
+}
+
+for(var i = 0 ;i<string.length ;i++){
+if(string[i] === serach ){
+  cont++;
+}
+}
+
+for(var i =0li<string.length;i++){
+  if(satring[i !== search]) continue;
+  count++;
+}
+
+for(var i)

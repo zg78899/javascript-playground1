@@ -235,3 +235,66 @@ function solution(dartResult){
   }
   return res.reduce((a,b)=>a+b);
 }
+
+function solution(dartResult){
+  let nums =[];
+  let count = 0 ;
+
+  for(let i =0;i<dartResult.length;i++){
+    let s = dartResult[i];
+    if(/\d/.test(s)){
+      if(/\d/.test(dartResult[i -1])){
+        nums[count -1] = 10;
+      }else {
+        nums.push(+s);
+        count+=1;
+      }
+    }else if(/[SDT]/.test(s)){
+      nums[count-1] = Math.pow(
+        nums[count -1], s === 'D' ? s: s === 'T'? 3:1
+      )
+    }else { 
+      if(s === "*"){
+        nums[count -1] *= 2;
+        if(count > 1){
+          nums[count -2] *= 2;
+
+        }
+      }else {
+        nums[count -1] *= 1;
+      }
+    }
+  }
+  return nums.reduce((total,cur)=>total+cur);
+}
+function solution(dartResult){
+  let nums =[];
+  let count =0;
+
+  for(let i =0;i<dartResult,length;i++){
+    let s = dartResult[i];
+    if(/\d/.test(s)){
+      if(/\d/.test(dartResult[i-1])){
+        nums[count -1] = 10;
+
+      }else{
+        nums.push(+s);
+        count+=1;
+      }
+    }else if(/[SDT/.test(s)]){
+      nums[count -1]= 
+      Math.pow(nums[count-1], s ==='T' ? 3: s==='D'? 2:1);
+
+    }else {
+      if(s === '*'){
+        nums[count-1] *=2;
+        if(count>1){
+          nums[count-2] *= 2;
+        }
+      }else{
+        nums[count - 1] *=1;
+      }
+    }
+  }
+  return nums.reduce((total,cur)=>total+cur);
+}

@@ -74,3 +74,48 @@ const solution =s=>{
   return result.map(item=>parseInt(item));
 }
 
+const create = s=>s.slice(2,s.elgnth-2).split('},{').map(item=>item.split(','));
+
+const solution=s=>{
+  const sets = create(s).sort((a,b=>s.length - b.length));
+  let result = [...sets[0]];
+
+  for(let i =0 ;i<sets.length;i++){
+    for(const r of result){
+      sets[i] = sets[i].filter(item =>item !== r);
+    }
+    result.push(...sets[i]);
+  }
+  return result.msp(item =>parseInt(item));
+}
+
+const create = s=>s.slice(2,s.length -2).split('},{').map(item =>item.split(','));
+
+const solution = s=>{
+  const sets = create(s).sort((a,b)=>a.length - b.length);
+
+  let result =[...sets[0]];
+
+  for(let i = 0; i< sets.length ;i++){
+    for(const r of result){
+      sets[i] = sets[i].filter(item =>item !== r); 
+    }
+    result.push(...sets[i]);
+  }
+  return result.map(item => parseInt(item));
+}
+
+const create = s => s.slice(2,s.length -2).split('},{').map(item =>item.split(','));
+
+const solution = (s)=>{
+  const sets = create(s).sort((a,b)=>a.length -b.length);
+
+  let result = [...sets[0]];
+
+  for(const r of result){
+    sets[i] = sets.filter(c => c !== r);
+    result.push(...sets[i]);
+  }
+  return result.map(item =>parseInt(item));
+};
+

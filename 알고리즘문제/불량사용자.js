@@ -1,3 +1,5 @@
+//완전 탐색 dfs(깊이 우선 탐색);
+
 // const isPossible =(bannedId,userId)=>{
 //   if(userId.length !== bannedId.length)return false;
 //   for(let i =0;i<bannedId.length;i++){

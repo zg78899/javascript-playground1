@@ -20,6 +20,12 @@
       width: 100%;
       height: 100%;
     }
+    .container{
+      position: relative;
+      overflow-x: hidden;
+      width: 100%;
+      height: 100%;
+    }
     .main,
     .side-nav {
       position: absolute;
@@ -27,20 +33,45 @@
       height: 100%;
       transition: transform 0.8s;
     }
+    .main,
+    .side-nav{
+      position: absolute;
+      top:0;
+      height: 100%;
+      transition: transform 0.8s;
+    }
+   
     .main {
       left: 0;
       width: 100%;
       background: antiquewhite;
     }
+    .main{
+      let:0;
+      width:100%;
+      background: white;
+    }
+
     .side-nav {
       left: -300px;
       width: 300px;
       background: rebeccapurple;
     }
+    .side-nav{
+      left:-300px;
+      width:300px;
+      background: purple;
+    }
+    
     .active>.main,
     .active>.side-nav {
       transform: translate3d(300px, 0, 0);
     }
+    .active > .main,
+    .active > .side-nav{
+      transform: translate3d(300px,0,0);
+    }
+    
     .toggle {
       font-size: 2em;
       color: maroon;
@@ -48,9 +79,20 @@
       cursor: pointer;
       transition: transform 0.5s;
     }
-    .active .toggle {
-      transform: rotate(180deg);
+    .toggle{
+      font-size: 12px;
+      color:purple;
+      margin:0;
+      cursor:pointer;
+      transition: trsnform 0.5s;
     }
+    .active .toggle{
+      transform:rotate(180deg);
+    }
+    .active .toggle{
+      transition: rotate(180deg);
+    }
+    
   </style>
 </head>
 
@@ -63,9 +105,14 @@
   </div>
   <script>
     const $button = document.querySelector('.toggle');
-    $button.onclick = () => {
+    $button.onclick=()=>{
       document.querySelector('.container').classList.toggle('active');
-    };
+    }
+    const $button = document.querySelector('.toggle');
+      $button.onclick=()=>{
+      document.querySelector('container').classList.toggle('.active');
+    }
+  
   </script>
 </body>
 

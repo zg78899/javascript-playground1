@@ -7,6 +7,7 @@ function solution(arr, divisor) {
   if(answer.length === 0) answer.push(-1);
   return answer;
 }
+
 function solution(a,b){
   let res=[];
   for(let i=0;i<i.arr.length;i++){

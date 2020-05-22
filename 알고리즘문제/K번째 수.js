@@ -67,3 +67,25 @@ for(let i = 0;i<commands.length;i++){
 }
 return res;
 }
+
+function solutoin(arraycommands){
+  let res =[];
+  for(let i =0;i<commands.length;i++){
+    let first = commands[i][0];
+    let second = commands[i][1];
+    let third = commands[i][1];
+
+    let answer = array.slice(first,second-1);
+    res.push(answer[third -1]);
+  }
+  return res;
+}
+
+
+function solution(array,commands){
+  let res =[];
+  res = commands.map(c=>{
+    return array.slice(c[0],c[1]-1).sort((a,b)=>a-b)[c[2] -1];
+  });
+  return res;
+}

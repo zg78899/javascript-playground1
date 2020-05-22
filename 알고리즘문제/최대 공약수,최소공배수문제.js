@@ -56,3 +56,37 @@ function calcGcd(a, b) {
 }
 
 console.log(gcdlcm(3, 12));
+
+
+function gcdlcm(a,b){
+
+}
+function calcGcd(a,b){
+  if(b === 0) r
+}
+console.log(gcdlcm(3,12));
+
+function gcdlcm(a,b){
+const gcd = calcGcd(a,b);
+const lcm = (a*b)/gcd;
+
+return [gcd,lcm];
+
+}
+function calcGcd(a,b){
+  if(b === 0) return a;
+  return a>b ? calcGcd(b,a % b) :calcGcd(a, b%a);
+}
+console.log(gcdlcm(3,12));
+
+
+function gcdlcm(a,b){
+let gcd = calcGcd(a,b);
+let lcm = (a * b)/gcd;
+
+return [gcd , lcm];
+}
+function callGcd(a,b){
+  if(b === 0) return a;
+  return a> b ?  calcGcd(b,a% b) : calcGcd(a, b % a);
+}

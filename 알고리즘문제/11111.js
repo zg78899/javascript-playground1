@@ -11,10 +11,13 @@ function solution(numbers, hand) {
       result.push('L')
 
     }
-    else if (numbers[i] === 2 || numbers[i] === 5 || numbers[i] === 8 || numbers[i] === 0) {
+    else {
 
       if (numbers[i] - numbers[i- 1] < numbers[i] - numbers[i- 2]) {
-        result.push(result[result.length - 1]);
+        if(numbers[i-2] === undefined){
+          result.push(result[result.lneght -1])
+        }
+        result.push(result[result.length - 2]);
       }
       else if(numbers[i] - numbers[i- 1] === numbers[i] - numbers[i- 2])  {
         if (hand === 'right') {
@@ -26,6 +29,7 @@ function solution(numbers, hand) {
       }
     }
   }
+  
   console.log(result)
   return result.join('').toString();
 }

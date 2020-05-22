@@ -20,6 +20,16 @@ console.log(nextSqaure(400));
 //   return Number.isInteger(root)?Math.pow((root)+1,2):'no');
 // }
 
+function solution(n){
+  if(Number.isInteger(Math.sqrt(n))){
+    return Math.pow(Math.sqrt(n)+1,2);
+  }else return 'no'
+};
+function solutoin(s){
+  const root = Math.sqrt(s);
+  return Math.isInteger(root)?Math.pow(root+1,2):'no';
+}
+
 // function nextSqaure(n){
 //   if(Number.isInteger.Math.sqrt(n)){
 //     return Math.pow(Math.sqrt(n)+1,2);

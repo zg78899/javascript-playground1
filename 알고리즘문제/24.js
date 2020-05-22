@@ -16,3 +16,8 @@
 
 // console.log(average([5, 3, 4])); // 4
 
+function solution(array){
+  return array.reduce((pre,cur,i,self)=>{
+    return i === self.length? pre+cut/self.length: pre+cur; 
+  },0);
+}

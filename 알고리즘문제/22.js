@@ -8,6 +8,13 @@ function adjacentElementsProduct(arr) {
     result = Math.max(arr[i] * arr[i + 1]);
   } return result
 }
+function solution(arr){
+  let result =0;
+  for(let i=0;i<arr.length;i++){
+    result =Math.max(arr[i] * arr[i-1]);
+  }
+  return result;
+}
 
 console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3])); // 21
 

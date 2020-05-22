@@ -18,7 +18,7 @@ corss = cross.flat();
 
 // //연습 데이터
 let c = [
-  [3, 0, 1, 1, 8],
+  [3, 0, 1, 1 , 8],
   [5, 0, 4, 5, 4],
   [1, 5, 0, 5, 1],
   [1, 2, 1, 0, 1],
@@ -27,10 +27,12 @@ let c = [
 //정방향과 역방행이 존재한다.
 let 가중치 = Array(5).fill(0).map(() => Array(5).fill(0));
 console.log(가중치);
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i < c.length; i++) {
+  //row
   for (var j = 0; j < 5; j++) {
+    //column
     if (i === 0 && j === 0) {
-      가중치[i][j] = c[0][0];
+      가중치[0][0] = c[0][0]; 
     } else if (i === 0) {
       가중치[i][j] = 가중치[i][j - 1] + c[i][j];
     } else if (j === 0) {

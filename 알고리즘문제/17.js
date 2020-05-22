@@ -34,8 +34,8 @@ const fibonacci = {
 };
 for (const num of fibonacci) {
   console.log(num);
-
 }
+
 
 const fibonacci={
   [Symbol.iterator](){

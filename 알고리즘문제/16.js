@@ -90,7 +90,20 @@ function solution(arr){
   return result;
 }
 
-function solution(number){
-  return '*'.repeat(number.length -4)+number.slice(-4);
-}
 
+
+function numberOfPrime(n){
+  var result =0;
+  var count =0;
+  for(var a =2;a<=n;a++){
+    count =0;
+    for(var b =0;b<=a;b++){
+      if(a%b ===0)
+      count++;
+    }
+    if(count === 2){
+      result++;
+    }
+    return result;
+  }
+}

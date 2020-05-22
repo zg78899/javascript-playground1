@@ -24,3 +24,13 @@ function findMinDistance(array) {
 }
 var array = [1, 3, 4, 8, 13, 17, 20, 23, 24];
 console.log(findMinDistance(array)); // [[3, 4], [23, 24]]
+
+
+function solution(arr){
+  let nearNumber =[];
+  return arr.filter((item,i,self)=>{
+    if(self[i]- self[i+1] === -1){
+      return neearNumber.push(self[i],self[i-1]);
+    }
+  })
+}

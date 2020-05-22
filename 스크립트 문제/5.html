@@ -91,7 +91,7 @@
       //   h = h - 12;
       //   session = 'PM';
       // }
-
+ 
       h = (h < 10) ? '0' + h : h;
       m = (m < 10) ? '0' + m : m;
       s = (s < 10) ? '0' + s : s;
@@ -103,6 +103,39 @@
       setInterval(showTime, 1000);
     }
     showTime();
+    
+    const $hour = document.querySelector('.hour');
+    const $minute = document.querySelector('.minute');
+    const $second = document.querySelector('.second');
+
+    function showTime(){
+      const date = new Date();
+      let h = date.getHours();
+      let m = date.getMinutes();
+      let s = date.getSeconds();
+
+      let session = 'AM';
+      if(h === 0){
+        h = 12;
+      }if(h >12){
+        h = h -12;
+        session = 'PM';
+      }
+      h = (h <10) ? '0'+h :h;
+      m = (m <10) ? '0'+m : m;
+      s = (s<10) ? '0'+s :s;
+
+      let time = `${h} : ${m} : ${s} ${session}`;
+
+      document.querySelector('digital-clock').innerHTML = time;
+      document.querySelector('digital-clock').textContent = time;
+
+      setInterval(showTime,1000);
+
+    }
+    showTime();
+   
+    
   </script>
 </body>
 

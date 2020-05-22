@@ -12,5 +12,6 @@ function adder(x, y) {
   return sum;
 }
 
+
 console.log(adder(3, 5)); // 12
 

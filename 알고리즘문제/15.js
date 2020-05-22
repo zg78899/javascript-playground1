@@ -17,7 +17,6 @@ function sumDivisor(num) {
 console.log(sumDivisor(12)); // 28
 
 
-
 function sumDivisor(num){
   let result;
   for(let i=0;i<=num;i++){

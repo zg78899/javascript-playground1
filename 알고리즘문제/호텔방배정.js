@@ -49,6 +49,18 @@ const find =(k,number)=>{
 }
 console.log(solution(6,[1,3,4,1,3,1]));
 
+const node = new Map();
+const solution = (k,room_number)=>{
+  return room_number.map(number=>find(k,number));
+}
+const find=(k,number)=>{
+  const getNumber = node.get(number);
+  if(!getNumber){
+    number === k ? node.get(number,1):node.set(number,number+1);
+    return number;
+  }
+  return find(k,getNumber);
+}
 
 const solution = (k,roomNumbers)=>{
   const used = new Map();
@@ -63,6 +75,23 @@ function findRoom(room,used){
   used.set(room,next+1);
   return next;
 }
+
+const solution =(k,roomNumbers)=>{
+  const used = new Map();
+  return roomNumbers.map(number =>findRoom(number,used));
+
+}
+const findRoom=(room,used)=>{
+  if(used.get(room) === undefined){
+    used.set(room,room+1);
+    return room;
+  }
+  let next = findRoom(used.get(room),used);
+  used.set(room,next+1);
+  return next;
+}
+
+
 const solution = (k,roomNumbers)=>{
   const used = new Map();
   return roomNumbers,map(number=>findNumber(number,used));
@@ -92,6 +121,23 @@ const findNumbers =(room,used)=>{
   used.set(room,next+1);
   return next;
 }
+const solution =(k,roomNumber)=>{
+  const used = new Map();
+  roomNumber.map(number =>findNumber(number,used));
+}
+const findNumber = (room,used)=>{
+  if(used.get(room) === undefined){
+    used.set(room,room+1);
+    return room;
+  }
+  let next = findNumber(used.get(room),used);
+  used.set(room,next+1);
+  return next;
+}
+
+
+
+
 
 const node = new Map();
 const solution =(k,room_number)=>{
@@ -105,3 +151,18 @@ const find =(k,number)=>{
   }
   return find(k,getNumber);
 }
+
+const node = new Map();
+const solution=(k,roomNumber)=>{
+  return roomNumber.map(room =>find(k,room));
+}
+const find =(k,room)=>{
+  const getRoom = node.get(room);
+  if(!getRoom){
+    k === room? node.get(room,1):node.set(room,room+1);
+    return room;
+  }
+  return find(k,getRoom);
+}
+
+const solution =(k,num)

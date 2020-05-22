@@ -59,3 +59,11 @@ app.listen(9000, () => {
   console.log('server is start...')
 })
 
+
+function solution(v){
+  var answer = [[]];
+
+  for(var i =0 ;i<2 ;i ++){
+    if(v[])
+  }
+}

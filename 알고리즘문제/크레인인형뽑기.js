@@ -24,6 +24,7 @@ function pickup(board,index){
     }
   }
 }
+
 function solution(board,moves){
   var count =0;
   var stack =[];
@@ -161,6 +162,102 @@ function solution(board,moves){
           satck.push(board[j][move]);
         }
         board[j][move] = 0;
+        break;
+      }
+    }
+  }
+  return count;
+}
+
+
+function solution(board,moves){
+  let result = 0;
+  let stack = [];
+
+  for(let i =0;i < moves.length;i++){
+    const now = moves[i] -1;
+    for(let j = 0;j < board.length;j++){
+      if(board[j][now] !== 0){
+        if(stack[stack.length-1] === board[j][now]){
+          stack.pop();
+          result+=2;
+        }else{
+          stack.push(board[j][now])
+        }
+        board[j][now] = 0;
+        break;
+      }
+    }
+  }
+  return result;
+}
+
+const solution = (board,moves) =>{
+  let stack =[];
+  let count = 0;
+moves.forEach(v=>{
+  const doll =pickup(board,v-1);
+  if(doll){
+    if(stack[stack.length -1] === doll){
+      stack.pop();
+      count+=2;
+    }else{
+      stack.push(doll);
+    }
+  }
+});
+return count;
+}
+const pickup =(board,index)=>{
+  const newBoard = board;
+  for(let i=0;i<newBoard.length;i++){
+    const doll = newBoard[i][index];
+    newBoard[i][index] = 0;
+    return doll;
+  }
+}
+
+function solution(board,moves){
+  const basket =[];
+  let result =0;
+  moves.forEach(v=>{
+    const doll = pickup(board,v -1);
+    if(doll){
+      if(basket[basket.length -1] === doll){
+        basket.pop();
+        result +=2;
+      }else{
+        basket.push(doll);
+      }
+    }
+  });
+  return result;
+
+}
+function puickup(board,index){
+  const newBoard = board;
+  for(let i =0;i<newBoard.length;i++){
+    const doll = newBoard[i][index];
+    newBoard[i][index] = 0;
+    return  doll;
+  }
+}
+
+
+function solution(board,moves){
+  let count =0;
+  let stack =[];
+  for(let i =0;i<moves.length;i++){
+    let now = moves[i] -1
+    for(let j =0; j<board.length;j++){
+      if(board[j][now] !== 0 ){
+        if(stack[stack.length -1] === board[j][now]){
+          stack.pop();
+          count+=2;
+        }else{
+          stack.push(board[j][now]);
+        }
+        board [j][now] = 0;
         break;
       }
     }

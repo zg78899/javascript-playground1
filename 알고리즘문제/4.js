@@ -13,6 +13,7 @@ function numPY(s) {
   }
   return pCount === yCount;
 }
+
 console.log(numPY('pPoooyY'));
 console.log(numPY('Pyy'));
 console.log(numPY('ab'));
@@ -38,11 +39,6 @@ console.log(numPY());
 
 //   return false;
 // }
-// console.log(numPY('pPoooyY'));
-// console.log(numPY('Pyy'));
-// console.log(numPY('ab'));
-// console.log(numPY(''));
-// console.log(numPY())
 
 function numPY(s) {
   if (!s) return true;
@@ -50,6 +46,7 @@ function numPY(s) {
   const matchY = s.match(/y/ig);
   return (matchP ? matchP.length : 0) === (matchY ? matchY.length : 0);
 }
+
 console.log(numPY('pPoooyY'));
 console.log(numPY('Pyy'));
 console.log(numPY('ab'));

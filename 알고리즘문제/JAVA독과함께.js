@@ -52,4 +52,25 @@ function 징검다리(돌의내구도,독){
   }
   return answer;
 }
-console.log(징검다리(돌의내구도,독))
+console.log(징검다리(돌의내구도,독));
+
+function 징검다리(돌의내구도,독){
+  let answer=[];
+  for(var 개별독 of 독){
+    let 독의위치=0;
+    let 실패 = false;
+    while(독의위치 < 돌의내구도.length -1){
+     독의위치 += parseInt(개별독['점프력'],10);
+     독의내구도[독의위치 -1] -= parseInt(개별독['몸무게'],10);
+     if(돌의내구도[독의위피 -1] <0){
+        실패 = true;
+        break;// break을하면 while문을 나옴
+     }
+    }
+    //위에서 순회한값들이 나옴 실패는 false기본 false로 초기화
+    if(!실패){
+      answer.push(개별독['이름']);
+    }
+  }
+  return answer;
+}
