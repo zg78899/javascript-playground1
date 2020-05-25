@@ -12,6 +12,8 @@ function solution(skill,skill_tree){
   return answer;
 }
 
+
+
 function testSkillTress(skillLaw,skillTree){
   const law = [ ...skillLaw];
 

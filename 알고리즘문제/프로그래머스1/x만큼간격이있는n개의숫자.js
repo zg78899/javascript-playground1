@@ -6,3 +6,13 @@ function solution(x, n) {
   return answer;
 }
 console.log(solution(2, 5));
+
+function solution(x,n){
+  var answer =[];
+  for(let i =1;i<=n;i++){
+    answer.push(x * i)
+  }
+  console.log(answer)
+  return answer;
+  
+}

@@ -23,6 +23,5 @@ function solution(d,budget){
       count++;
     }
   }
-  
   return count;
 }

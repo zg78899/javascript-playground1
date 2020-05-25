@@ -66,6 +66,8 @@ function solution(dirs){
   return answer.length;
 }
 
+
+
 // function solution(dirs){
 //   let answer =[];
 //   let gps = [0,0];

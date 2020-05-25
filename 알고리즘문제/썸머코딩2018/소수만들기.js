@@ -31,6 +31,32 @@ function solution(nums) {
 
   return answer;
 }
+function solutioin(nums){
+  let answer=0;
+  const len = nums.length;
+  for(let i =0;i<len;i++){
+    for(let j = i+1;j<len;j++){
+      for(let k =j+1;k<len;k++){
+        number = nums[i]+nums[j]+nums[k];
+        if(isPrime(number)){
+          answer++;
+        }
+      }
+    }
+  }
+  return answer;
+}
+
+function isPrime(n){
+  if(n < 2) return true;
+  for(let i =2;i<n;i++){
+    if(n % i ===0){
+      return false;
+    }
+    return true;
+  }
+}
+
 console.log(solution([1,2,3,4]));
 
 //

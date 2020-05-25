@@ -13,16 +13,7 @@ function solution(n) {
 }
 console.log(solution(4))
 
-function solution(n){
-  let folds =[];
-  for(let i = 0;i<n;i++){
-    let left = folds.slice();
-    let right = folds.splice().reverse().map(v=>!v);
-    folds = [].concat(left).concat([false]).concat(right);
-  }
-  return folds.map(c=> c? 1: 0);
-}
-fucntion 
+
 //n = 1 [0];
 //n = 2 [0,0,1];
 //n = 3 [0,0,1,0,0,1,1];
@@ -39,6 +30,17 @@ fucntion
 //   }
 //   return answer;
 // }
+function solution(n){
+  let answer =[];
+  for(let i =0;i<n;i++){
+    let _answer=[...answer];
+    answer.push(0);
+    _answer.reverse().forEach(item => answer.push(item === 0 ? 1: 0));
+  }
+  return answer;
+}
+
+
 // console.log(solution(4));
 //
 function solution(n){
