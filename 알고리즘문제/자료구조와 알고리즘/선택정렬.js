@@ -8,17 +8,18 @@ function selectionSort(array) {
     for (let j = i + 1; j < result.length; j++) {
       if (result[j] < result[minIndex]) {
         minIndex = j;
+        console.log(minIndex)
       }
     }
     let temp = result[minIndex];
     result[minIndex] = result[i];
     result[i] = temp;
+    console.log(temp)
   }
   return result;
 }
 
-
-
 // console.log(selectionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
-// console.log(selectionSort([2, 4, 5, 1, 3]));     // [1, 2, 3, 4, 5]
+console.log(selectionSort([2, 4, 5, 1, 3]));     // [1, 2, 3, 4, 5]
 // console.log(selectionSort([5, 2, 1, 3, 4, 6]));  // [1, 2, 3, 4, 5, 6]
+
