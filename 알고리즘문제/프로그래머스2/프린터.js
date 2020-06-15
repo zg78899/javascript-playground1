@@ -1,84 +1,42 @@
-// function solution(priorities,location){
-//   let answer = 0;
-//   const list = priorities.map((value,index)=>({
-//     value,
-//     index
-//   }));
+function solution(priorities,location){
+  let answer = 0;
+  const list = priorities.map((value,index)=>({
+    value,
+    index
+  }));
 
-//   while(true){
-//     const current = list.splice(0,1)[0];
-//     console.log(list)
-//     if(list.some(item=> item.value > current.value)){
-//       list.push(current);
-//     }else{
-//       answer++;
-//       if(current.index === location){
-//         return answer;
-//       }
-//     }
-//   }
-// }
-
-// console.log(solution([1,1,9,1,1,1],0));
-
-// //
-// function solution(priorities,location){
-//   var list = priorities.map((t,i)=>({
-//    my: i === location,
-//    val: t
-//   }));
-
-//   var count =0;
-//   while(true){
-//     var cur  = list.splice(0,1)[0];
-//     if(list.some(item => item.val > cur.val)){
-//       list.push(cur);
-//     }
-//     else{
-//       count++;
-//       if(cur.my){
-//         return count;
-//       }
-//     }
-//   }
-// }
-
-function solution(priorities, location) {
-
-  const list = priorities.map((value, index) => {
-    return {
-      value,
-      index
-    }
-  });
-
-  while (true) {
-    let current = list.splice(0, 1)[0];
-    if (list.some(item => item.value > current.value)) {
+  while(true){
+    const current = list.splice(0,1)[0];
+    console.log(list)
+    if(list.some(item=> item.value > current.value)){
       list.push(current);
-    } else {
+    }else{
       answer++;
-      if (current.index === location) {
+      if(current.index === location){
         return answer;
       }
     }
   }
 }
 
-function solution(priorities, location) {
-  const list = priorities.map((t, i) => ({
-    val: t,
-    my: i === location
+console.log(solution([1,1,9,1,1,1],0));
+
+// //
+function solution(priorities,location){
+  var list = priorities.map((t,i)=>({
+   my: i === location,
+   val: t
   }));
 
-  var count = 0;
-  while (true) {
-    let cur = list.splice(0, 1)[0];
-    if (list.some(item => item.val > current.val)) {
+  var count =0;
+  while(true){
+    var cur  = list.splice(0,1)[0];
+    if(list.some(item => item.val > cur.val)){
       list.push(cur);
-    } else {
+    }
+    else{
       count++;
-      if (cur.my) {
+      if(cur.my){
         return count;
       }
     }
@@ -88,7 +46,7 @@ function solution(priorities, location) {
 function solution(priorities, location) {
   const list = priorities.map((value, index) => {
     return {
-      vale,
+      value,
       index
     }
   });
@@ -129,8 +87,8 @@ function solution(priorities, location) {
   return queue.findIndex(queueEle => queueEle.index === location) + 1;
 }
 console.log(solution([1, 1, 9, 1, 1, 1], 0));
-// // 
 
+//
 function solution(priorities, location) {
   var list = priorities.map((value, index) => {
     return {
@@ -151,63 +109,38 @@ function solution(priorities, location) {
 }
 
 
-// function solution(priorities,location){
-//   let answer = 1;
-//   while(priorities.length > 0){
-//     let max = 0;
-//     for(i =1;i<priorities.length;i++){
-//       if(priorities[max] < priorities[i]){
-//         max = i;
-//       }
-//     }
-//     console.log(max);
-
-//     let temp = priorities.splice(0,max);
-//     console.log(temp)
-//     priorities = priorities.concat(temp);
-
-//     location -= max;
-//     console.log(location);
-//     if(location < 0){
-//       location += priorities.length;
-//       console.log(location);
-//     }
-//     if(location === 0){
-//       break;
-//     }
-//     priorities.shift();
-//     answer++;
-//     console.log(answer)
-//     location--;
-//     console.log(location);
-//   }
-
-//   return answer;
-
-// }
-// console.log(solution([1,1,9,1,1,1],0));
-
 function solution(priorities,location){
-  let answer;
+  let answer = 1;
   while(priorities.length > 0){
     let max = 0;
-    for(let i =1;i<priorities.length;i++){
+    for(i =1;i<priorities.length;i++){
       if(priorities[max] < priorities[i]){
         max = i;
       }
     }
+    console.log(max);
+
     let temp = priorities.splice(0,max);
-    priorities = priorities.push(temp);
+    console.log(temp)
+    priorities = priorities.concat(temp);
 
     location -= max;
+    console.log(location);
     if(location < 0){
       location += priorities.length;
-    }if(location === 0){
+      console.log(location);
+    }
+    if(location === 0){
       break;
     }
     priorities.shift();
     answer++;
-    locatio--;
+    console.log(answer)
+    location--;
+    console.log(location);
   }
+
   return answer;
+
 }
+console.log(solution([1,1,9,1,1,1],0));

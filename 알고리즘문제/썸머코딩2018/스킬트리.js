@@ -11,7 +11,7 @@ function solution(skill,skill_tree){
   }
   return answer;
 }
-
+console.log(solution([]))
 
 
 function testSkillTress(skillLaw,skillTree){

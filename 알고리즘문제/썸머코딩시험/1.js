@@ -17,7 +17,7 @@
 
 // function solution(p) {
 //   // var answer = 0;
- 
+
 //   let splitY = String(p).split('');
 //   console.log(splitY);
 //     for(let i =0;i<splitY.length;i++){
@@ -38,7 +38,7 @@
 //   let splitP = String(p).split('');
 //   const filter = splitP()
 //   while(){
-  
+
 //   }
 //   return Math.min(p)
 // }
@@ -58,16 +58,16 @@
 //   return Math.min(p);
 // }
 
-function solution(p){
+// function solution(p){
 
-  const gcd = (p) =>{
-    let splitP = String(p).split('');
-    const filter = splitP.filter((v,i,self)=>self.indexOf(v) === i);
-    return filter ? p++ : gcd(splitP)
-  }
-  return Math.min(gcd(p));
-}
-console.log(solution(1987));
+//   const gcd = (p) =>{
+//     let splitP = String(p).split('');
+//     const filter = splitP.filter((v,i,self)=>self.indexOf(v) === i);
+//     return filter ? p++: gcd(splitP)
+//   }
+//   return Math.min(parseInt(gcd(p)));
+// }
+// console.log(solution(1987));
 
 
 // function solution(w,h){
@@ -77,4 +77,81 @@ console.log(solution(1987));
 //   return w * h - (w + h - gcd(w, h));
 // };
 
+// function solution(skill,skill_tree){
+//   var answer =0;
+//   let splitP = p.split('');
+//   let str;
+//   // console.log(skillL);
+//   for(let i =0;i<=10000;i++){
+//     str = skill_tree[i].split('').filter(element => skillL.includes(element)).join('');
+//     if(str === skill.substring(0,str.length)){
+//       answer++;
+//     }
+//   }
+//   return answer;
+// }
 
+// function solution(p) { 
+//   let splitY = String(p).split('');
+//   const filter = splitY.filter((v,i,self)=>self.indexOf(v) === i)
+//     if(filter){
+//       p ++;
+//     }else{
+//       if(filter){
+//           p++;
+//       }  
+//     }
+//     return Math.min(p);
+//   }
+// function isRepeat(p){
+//   var flag = false;
+//   var splitP = p.split('');
+
+//   for(let i=0;i<splitP.length;i++){
+//     for(j = i+1;j<splitP.length;j++){
+//       if(splitP[i] === splitP[j]){
+//         flag = true;
+//       }
+//     }
+//     if(flag){
+//       isRepeat(p);
+//       p++;
+//     }else{
+//       p+1;
+
+//     }
+//   }
+//   return p
+// }
+
+// function solution(p){
+//   return Math.min(p);
+// }
+
+// function isRepeat(n){
+//  const arr = String(n).split('');
+//  for(let i =0)
+
+
+// }
+
+function solution(p) {
+ 
+  var answer =[];
+  p+=1;
+  var strNum = String(p).split('');
+  
+    answer.push(strNum);
+    console.log(answer)
+    for (let i = 0; i < answer.length; i++) {
+      for(let j =0;j<strNum.length;j++){
+        if(answer[i][j].indexOf() !== i ){
+          
+        }else{
+
+        }
+      }
+    }
+  return Math.min(parseInt(strNum.join('')));//연도를 리턴
+}
+console.log(solution(1987));

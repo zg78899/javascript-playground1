@@ -88,3 +88,63 @@ const foo=function(){
 </script>
 
 </html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="btn">0</button>
+  <script>
+    class App{
+      constructor(){
+        this.$button = document.querySelector('.btn');
+        this.count = 0;
+        
+        // this.$button.onclick = this.increase;// 인스턴스 메소드인 increase가 화살표 함수일때 , this는 자신이 생성하는 인스턴스의 this을 가리키게 됨.
+
+        this.$button.onclick = this.incrase.bind(this) //인스턴스 메소드에 화살표 함수를 사용하지않으면 this을 bind 해주어야한다.
+
+      }
+      // increase = () => this.$button.textContent = this.count++;
+      increase(){
+        this.$button.textContent = this.count++;
+      }
+    }
+    new App()
+  </script>
+  
+  
+</body>
+</html>
+
+class Person{
+  constructor(name){
+    this.name = name;
+  }
+}
+const me = new Person('kim');
+console.log(me) name:'kim';
+
+class Person{
+  name = 'kim';
+
+}
+cost me = new Person();
+
+class Person{
+  #name = '';
+
+  constructor(name){
+    this.#name = name;
+  }
+  get name(){
+    return this.#name.trim();
+  }
+}
+const me = new Person(' kim ');
+console.log(me,name) //kim 

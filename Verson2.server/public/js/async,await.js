@@ -67,6 +67,8 @@ const getTodos = async () => {
     console.log(e);
   }
 
+ 
+
 
   // ajax.get('/todos')
   //   .then(res => todos = res)
@@ -203,3 +205,231 @@ $todos.onclick = ({ target }) => {
   removeTodos(id);
   //  ajax.del(`/todos/${id}`,render);
 };
+
+
+
+
+
+
+let todos =[];
+
+const $todo = document.querySelector('.todos');
+const $input = document.querySelector('.input-todos');
+
+const render = ()=>{
+  let html = '';
+  todos.forEach(({id,content,completed})=>{
+    html+=` <li id="${id}" class="todo-item">
+    <input class="checkbox" id="ck-${id}" type="checkbox"${completed ? 'checked' : ''}>
+    <label for="ck-${id}">${content}</label>
+    <i class="remove-todo far fa-times-circle"></i>
+  </li>`;
+  });
+  $todos.innerHTML = html;
+}
+
+const ajax = (()=>{
+const req = (method,url,payload)=>{
+  return new Promise((resolve,reject)=>{
+    const xhr = new XMLHttpRequest();
+    xhr.open(method,url)
+    xhr.setRequestHeader('Content-Type','application/json')
+    xhr.send(JSON.stringify(payload));
+
+    xhr.onload=()=>{
+      if(xhr.status === 200){
+        resolve(JSON.parse(xhr.resopnse))
+      }else{
+        reject(new Error('error'));
+      }
+    }
+  })
+}
+return {
+  get(url){
+   return req('GET',url)
+  },
+  post(url,payload){
+    return req('POST',url,payload)
+  },
+  patch(url,payload){
+    return req('PATCH',url,payload)
+  },
+  delete(url){
+    return req('DELETE',url)
+  }
+}
+})();
+
+const generateId = ()=>{
+  return Math.max(0,...todos.map(todo => todo.id))+1
+};
+
+const getTodos = async () =>{
+  try{
+    const res = await axios.get('/todos');
+    todos = res.data;
+    render();
+  }catch(error){
+    console.error(error);
+  }
+}
+
+const addTodo = (content)=>{
+  try{
+    const res = await axios.post('/todos',{id:generateId(),content,completed:false});
+    todos = res.data;
+    render();
+
+  }catch(err){
+    console.error(err);
+  }
+}
+
+const toggleCompleted =async (id)=>{
+  
+  try{
+    const completed = todos.find(todo => todo.id=== +id).completed
+      const res = await axios.patch(`/todos/${id}`,{completed:!completed})
+      todos = res.data;
+      render();
+  }catch(err){
+    console.error(err);
+  }
+}
+
+const removeTodo = async (id)=>{
+  try{
+    const res = axios.delete(`/todos/${id}`)
+    todos = res.data;
+    render();
+  }catch(error){
+    console.error(error);
+  }
+}
+
+window.onload = getTodo;
+
+$input.onkeyup = ({target,keyCode}) =>{
+  const content = $input.value.trim();
+  if(target.value === '' || keyCode !== 13) return;
+  target.value = '';
+  addTodo(content);
+};
+$todos.onchange = ({target}) =>{
+  const id = target.parentNode.id;
+  toggleCompleted(id);
+}
+
+$todos.onclick = ({target}) =>{
+  if(!target.classList.contains('remove-todo'))return ;
+  const id =  target.parentNode.id;
+  removeTodo(id);
+}
+
+let todos =[];
+
+const $input = document.querySelector('.input-remove');
+const $ttodos = document.querySelector('.todos');
+
+const render = ()=>{
+  let htrml = '';
+  todos.forEach(({id,contnet,completed})=>{
+    html+=`
+    `;
+  })
+  $todos.innerHtml = html;
+}
+const ajax =(()=>{
+const req = (method,url,payload)=>{
+ return new Promise((resolve,reject)=>{
+   const xhr = new XMLHttpRequest();
+   xhr.open(method,url)
+   xhr.setRequestHeader('Content-Type','application/json')
+   xhr.send(JSON.stringify(payload));
+
+   xhr.onload = ()=>{
+     if(xhr.status === '200'){
+       resolve(JSON.parse(xhr.response))
+     }else{
+       reject(new Error('error'));
+     }
+   }
+ })
+}
+return {
+  get(url){
+    return req('POST',url)
+  },
+  post(url,payload){
+    return req('POST',url,payload)
+  },
+  patch(url,payload){
+    return req('PATCH',url,payload)
+  },
+  delete(url){
+    return req('DELETE',url)
+  }
+}
+})();
+
+const generateId = ()=>{
+  return todos.length ? Math.max(...todos.map(todo =>todo.id))+1:1;
+}
+
+const getTodos = async ()=>{
+  try{
+    const res = await axios.get('/todos');
+    todos = res.data;
+    render();
+  }catch(err){
+    console.error(err);
+  }
+}
+const addTodo =async (content)=>{
+  try{
+    const res = await axios.post('/todos',{id:generateId(),content,completed:false})
+      todos = res.data;
+      render();
+  }catch(error){
+    console.error(error);
+  }
+}
+const toggleCompleted = async (id)=>{
+  try{
+    const completed = todos.find(todo=>todoid === +id).completed;
+    const res = await axsio.patch(`/todos/${id}`,{completed:!completed})
+    todos = res.data;
+    render();
+
+  }catch(err){
+    console.error(err);
+  }
+}
+const remoeTodo = async (id)=>{
+  try{
+    const res = await axios.delete(`/todos/${id}`);
+    todos = res.data;
+    render();
+  }catch(err){
+    console.error(err);
+  }
+}
+
+window.onload = getTodos;
+$input.onkeyup = ({target,keyCode})=>{
+  const content = $input.value.trim();
+  if(target.value === '' || keyCode !== 13)return;
+  target.value = '';
+  addTodo(content);
+
+}
+$todos.onchange = ({target})=>{
+const id = target.parentNode.id;
+toggleCompleted(id)
+};
+$todos.onclick = ({target})=>{
+  if(!(target.classList.contains('remove-todo')))return;
+  const id = target.parentNode.id;
+  removeTodo(id);
+}
