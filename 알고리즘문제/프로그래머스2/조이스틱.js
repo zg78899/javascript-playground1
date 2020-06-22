@@ -144,3 +144,68 @@ function solution(name){
     return sum+ minMove;
   }
 }
+
+function solution(name){
+  var answer = 0;
+  var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');;
+  var arr = name.split('');
+  for(let i =0;i<name.length;i++){
+    var target = name[i];
+    if(alphabet.indexOf(target) < 13){
+      answer += answer + alphabet.indexOf(target);
+    }else{
+      answer += answer + (26 - alphabet.indexOf(target));
+    }
+    var reverseLength = 0;
+    var length = 0;
+    for(let i =1;i<name.length;i++){
+      if(name[i] !=='A'){
+        reverseLength = name.length - i;
+        break;
+      }
+    }
+    for(let i =name.length;i>0;i--){
+      if(name[i]!== 'A'){
+        length = i;
+        break;
+      }
+    }
+
+  }
+}
+function solution(name){
+  var answer = 0;
+  var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  var arr = name.split('');
+
+  for(let i =0;i<name.length;i++){
+    var target = name[i];
+   if(alphabet.indexOf(target) < 13){
+     answer = answer + alphabet.indexOf(target);
+   }else{
+     answer = answer + (26 - alphabet.indexOf(target));
+   }
+   var reverseLength = 0;
+   var length = 0;
+   
+   for(let i =1;i<name.length;i++){
+     if(name[i]!== 'A'){
+       reverseLength = name.length -i;
+       break;
+     }
+   }
+   for(let i =name.length-1;i>0;i--){
+     if(name[i] !== 'A'){
+       length = i;
+       break;
+     }
+   }
+
+  }
+  if(reverseLength> length){
+    answer = answer + reverseLength;
+  }else{
+    answer = answer + length;
+  }
+  return answer;
+}
