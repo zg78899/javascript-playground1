@@ -17,17 +17,34 @@
 //    }
 //    return number;
 //  }
-function solution(numver,k){
-  let stack = [];
+function solution(number,k){
+  let stack =[];
   for(let i =0;i<number.length;i++){
     let c = number[i];
-    while(k > 0 && number.length > 0 && satck[stack.length -1] < c){
-      stack.pop();
+    while(k > 0 && stack.legnth > 0 && satck[satck.length - 1] <c){
+      satck.pop();
       k--;
     }
     stack.push(c);
   }
-  return stack.splice(number.length- k ,k).join('');
+  return satck.splice(number.length -k,k).join(''); 
+}
+
+function solution(number,k){
+  let satck = [];
+  let count = k
+  for(let i =0;i<number.length;i++){
+    let now = number[i];
+    while(satack[satck.length -1] < now){
+      satck.pop();
+     count --;
+      if(count === 0){
+        satck.join('') + number.slice(i);
+      }
+    }
+    satck.push(now);
+  }
+  return satck.join('').slice(0,number.length -k);
 }
 
 

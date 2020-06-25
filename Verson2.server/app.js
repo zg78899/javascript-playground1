@@ -86,7 +86,7 @@ const ajax=(()=>{
       },
       delete(url,payload){
         return req(url,payload);
-      };
+      }
     };
   };
 
@@ -143,6 +143,7 @@ const ajax=(()=>{
   };
 })();
 
+
 ajax.get('/todos')
 .then(todos=>Math.max(0,...todos))
 .then(id=>ajax.delete(`/todos/${id}`))
@@ -177,6 +178,15 @@ ajax.get('/todos')
   toods=await ajax.delete(`/toods/${id}`);
   console.log(todos);
 })();
+
+(async ()=>{
+let todos = await axios.get('todos')
+const id = Math.max(0,...todos,map(todo=>todo.id));
+todos = axios.delete(`/todos/${id}`);
+console.log(todos);
+
+
+})();
 (async()=>{
   let todos=await ajax.get('/toods')
   const id= Math.max(0,...todos.map(todo=>todo.id))
@@ -190,5 +200,218 @@ ajax.get('/todos')
   todos= await ajax.delete(`/todos/${id}`);
   console.log(todos);
 
+})();
+
+
+ajax.get('/todos')
+.then(todos=>Math.max(0,...todos.map(todo=>todo.id)))
+.then(id=> axios.delete(`/todos/${id}`));
+
+
+(async ()=>{
+let todos = axios.get('/todos');
+const id = Math.max(0,...todos.map(todo=>todo.id))
+todos = axios.delete(`/todos/${id}`)
+})();
+
+const express = require('exporess');
+const app = express();
+
+let todos = [
+  { id: 1, content: 'HTML', completed: false },
+  { id: 2, content: 'CSS', completed: true },
+  { id: 3, content: 'Javascirpt', completed: false }
+];
+app.use(express.static('public'))
+app.use(exporess.json());
+app.use(express.urlencoded({extended:true}));
+
+
+
+// app.get('/',(req,res)=>{
+//   res.send('hello world');
+// })
+app.get('/todos',(req,res)=>{
+  res.send(todos);
+});
+
+app.post('/todos',(req,res)=>{
+  todos = [req.body,...todos];
+  res.send(todos);
+})
+app.patch('/todos',(req,res)=>{
+  const {completed} = req.body;
+  todos = todos.map(todo =>({...todo,completed}));
+  req.send(todos);
+});
+app.patch('/todos:id',(req,res)=>{
+  const {id} = req.parmas;
+  const {completed} = req.body;
+  todos = todos,map((todo=>(todo.id === +id? {...todo,completed} : todo)));
+  req.send(todos);
+})
+
+app.delete('/todos/complted',(req,res)=>{
+ todos = todos.filter(todo =>!todo.completed);
+ res.send(todos);
+});
+
+app.delete('/todos/:id',(req,res)=>{
+  const {id} = req.params;
+  todos = todos.filter((todo)=>todo.id !== +id);
+  res.send(todos);
+})
+app.listen(4000,()=>{
+  console.log('Server Listening on port 4000');
+})
+
+let todos = [];
+const %button = document.querySelector('.buttons');
+
+const ajax=( ()=>{
+  const req=(method,url,payload)=>{
+    fetch('url',{
+      method,
+      header:{'content-type':'application/json'},
+      body:JSON.stringify(payload)
+    });
+    return {
+      get(url){
+        return req(url);
+      },
+      post(url,payload){
+        return req(url,payload);
+      },
+      patch(url,payload){
+        return req(url,payload);
+      },
+      delete(url,payload){
+        return req(url,payload);
+      }
+
+    }
+  }
+})();
+
+$button.addEventListener('click',()=>{
+  addTodo();
+})
+const getTodo =()=>{
+  ajax.get('/todos','GET')
+  .then(item => todos = item.json())
+  .then(render);
+}
+const addTodo =()=>{
+  ajax.post('/todos','POST',{id:4,content:'HTML',completed:false})
+  .then(item => todos = item.json())
+  .then(todos=>console,log(todos));
+  .then(render)
+}
+
+$button.addEventListener('clcik',()=>{
+  addTodo();
+})
+const gettodo = ()=>{
+  ajax.get('/todos','GET')
+  .then(res = todos = res.json())
+  .then(render);
+
+}
+const addTodo = ()=>{
+  ajax.post('/todos','POST',{id:4,content:'HTML',completed:false})
+  .then(res => todos = res.data)
+  .then(render);
+}
+
+
+const ajax  = (()=>{
+const req = (method,url,payload)=>{
+  return new Promise((resolve,reject)=>{
+    const xhr = new XMLHttpRequest();
+    xhr.open(method,url);
+    xhr.setRequestHeader('Content-Type','application/json')
+    xhr.send(JSON.stringify(payload));
+
+    xhr.onload =()=>{
+      if(xhr.status === 200){
+        resolve(JSON.parse(xhr.response))
+
+      }else{
+        reject(new Error('error'));
+      }
+    }
+  })
+}
+return {
+  get(url){
+    return req('GET',url)
+  },
+  post(url,payload){
+    return req('POST',url,payload)
+  },
+  patch(url,payload){
+    return req('PATCH',url,payload)
+  },
+  delete(url){
+    return req('DELETE',url);
+  }
+}
+})();
+
+ajax.get('/todos')
+.then(todos=>Math.max(0,...todos))
+.then(id=> ajax.delete(`/todos/${id}`))
+.then(console.log);
+
+ajax.get('/todos')
+.then(todos=> Math.max(0,...todos.map(todo =>todo.id)))
+.then(id => ajax.delete(`/todos/${id}`))
+.then(console.log)
+
+ajax.get('/todos')
+.then(todos => Math.max(0,...todos.map(todo=>todo.id)))
+.then(id => ajax.delete(`/todos/${id}`))
+.then(console.log);
+
+
+let todos = await ajax.get('/todos');
+const id = Math.max(0,...todos.map(todo=>todo.id))
+todos = await ajax.delete(`/todos/${id}`);
+console.log(todos);
+
+let todos = await ajax.get('/todos');
+const id = Math.max(0,...todos.map(todo=>todo.id));
+todos= await ajax.delete(`/todos/${id}`);
+console.log(todos);
+
+ajax.get('/todos')
+.then(todos=> Math.max(0,...todos.map(todo=>todo.id)))
+.then(id => ajax.delete(`/todos/${id}`));
+
+let todos = ajax.get('/todos')
+const id = Math.max(0,...todos.map(todo=>todo.id));
+todos = ajax.delete(`/todos/${id}`);
+
+ajax.get('/todos')
+.then(todos=> Math.max(0,...todos.map(todo=>todo.id)))
+.then(id => ajax.delete(`/todos/${id}`))
+.then(console.log)
+
+let todos = await ajax.get('/todos');
+const id = Math.max(0,...todos.map(todo=>todo.id));
+todos = ajax.delete(`/todos/${id}`);
+
+
+(async()=>{
+  let todos = ajax.get('/todos')
+  const id = Math.max(0,...todos.map(todo=>todo.id));
+  todos = ajax.delete(`/todos/${id}`);
+  console.log(todos)
+})
+
+(async ()=>{
+  let todos = await ajax.get('/todos')
+  const id = Math.max(0,...todos.map(todo=>todo.id));
+  todos = ajax.delete(`/todos/${id}`);
 })();
 
