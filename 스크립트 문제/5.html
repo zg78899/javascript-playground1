@@ -8,6 +8,7 @@
   <title>Analog Clock</title>
   <style>
     @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+    @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
     .analog-clock {
       position: relative;
@@ -16,6 +17,7 @@
       height: 200px;
       background-color: aliceblue;
       border-radius: 50%;
+      transform: rotate(270deg);
     }
 
     .hand {
@@ -25,19 +27,31 @@
       height: 100px;
       /* 자바스크립트에 의해 덮어써진다. */
       /* transform: translate3d(-50%, 0, 0); */
+      transform: rotate(90deg);
       transform-origin: 100% 100%;
+      transition: all 0.05s cubic-bezier(0.1, 2.7, 0.58, 1);
     }
 
-    .hour {
+    .hour.hand {
       background-color: #f44336;
+      height: 40px;
+      width:5px;
+      border-radius: 3px;
+      top:28%;
+      left: 48%;
     }
 
-    .minute {
+    .minute.hand {
       background-color: #3f51b5;
+      height: 100px;
+      border-radius: 3px;
+      width:3px;
+      left:48%;
     }
 
-    .second {
+    .second.hand {
       background-color: #9e9e9e;
+      width:3px;
     }
 
     .center-circle {
@@ -50,6 +64,7 @@
       background-color: black;
       border-radius: 50%;
     }
+
 
     .digital-clock {
       position: absolute;
@@ -73,10 +88,37 @@
     <div class="digital-clock"></div>
   </div>
 
-  <script>
-  const $hour=document.querySelector('.hour');
-  const $minute=document.querySelector('.minute');
-  const $second=document.querySelector('.second');
+  <!-- <script>
+    const secondHand = document.querySelector('.secHand');
+    const minuteHand = document.querySelector('.minHand');
+    const hourHand = document.querySelector('.hourHand');
+
+    function setDate() {
+      const now = new Date();
+
+      const seconds = now.getSeconds();
+      const secondsDegrees = ((seconds / 60) * 360) + 90;
+      secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+      if (secondsDegrees === 90) {
+        secondHand.style.transition = 'none';
+      } else if (secondsDegrees >= 91) {
+        secondHand.style.transition = 'all 0.05s cubic-bezier(0.1, 2.7, 0.58, 1)'
+      }
+
+      const minutes = now.getMinutes();
+      const minutesDegrees = ((minutes / 60) * 360) + 90;
+      minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
+
+      const hours = now.getHours();
+      const hoursDegrees = ((hours / 12) * 360) + 90;
+      hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+    }
+
+    setInterval(setDate, 1000)
+
+    const $hour = document.querySelector('.hour');
+    const $minute = document.querySelector('.minute');
+    const $second = document.querySelector('.second');
 
     function showTime() {
       let date = new Date();
@@ -91,7 +133,7 @@
       //   h = h - 12;
       //   session = 'PM';
       // }
- 
+
       h = (h < 10) ? '0' + h : h;
       m = (m < 10) ? '0' + m : m;
       s = (s < 10) ? '0' + s : s;
@@ -103,39 +145,50 @@
       setInterval(showTime, 1000);
     }
     showTime();
-    
+  </script> -->
+  <script>
     const $hour = document.querySelector('.hour');
     const $minute = document.querySelector('.minute');
     const $second = document.querySelector('.second');
 
-    function showTime(){
-      const date = new Date();
-      let h = date.getHours();
-      let m = date.getMinutes();
+    function showTime() {
+      let date = new Date();
       let s = date.getSeconds();
-
-      let session = 'AM';
-      if(h === 0){
-        h = 12;
-      }if(h >12){
-        h = h -12;
-        session = 'PM';
+      const sDeg = ((s / 60) * 360) + 90;
+        $second.style.transform = `rotate(${sDeg}deg)`;
+      if (sDeg === 90) {
+        $second.style.transition = 'none';
+      } else if (sDeg >= 91) {
+        $second.style.transition = 'all 0.05s cubix-bezier(0.1, 2.7, 0.58, 1)';
       }
-      h = (h <10) ? '0'+h :h;
-      m = (m <10) ? '0'+m : m;
-      s = (s<10) ? '0'+s :s;
+      let m = date.getMinutes();
+      let mDeg = ((m / 60) * 360) + 90;
+      $minute.style.transform = `rotate(${mDeg}deg)`;
 
-      let time = `${h} : ${m} : ${s} ${session}`;
+      let h = date.getHours();
+      const hDeg = ((h / 12) * 360) + 90;
+      $hour.style.transform = `rotate(${hDeg}deg)`;
+      let session = 'AM';
+      if (h === 0) {
+        h = 12;
+      }
+      if (h > 12) {
+        h = h - 12;
+        session = 'PM'
+      };
 
-      document.querySelector('digital-clock').innerHTML = time;
-      document.querySelector('digital-clock').textContent = time;
+      h = (h < 10)? '0'+h :h;
+      m = (m < 10)? '0'+m : m;
+      s = (s < 10)? '0'+s : s;
 
-      setInterval(showTime,1000);
-
+      let time = `${h}:${m}:${s} ${session}`;
+      
+      document.querySelector('.digital-clock').innerHTML = time;
+      document.querySelector('.digital-clock').textContent = time;
+      setInterval(showTime,1000); 
     }
-    showTime();
-   
     
+    showTime();
   </script>
 </body>
 

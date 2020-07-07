@@ -36,10 +36,3 @@ const flattenDeep1 =
    },[]);
  }
  
- function solution(arr){
-   return arr.reduce((a,c)=>{
-     return a.concat((Array.isArray(b)))?
-     solution(b):b
-   },[]);
-   
- }

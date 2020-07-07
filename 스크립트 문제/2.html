@@ -15,11 +15,11 @@
       font-weight: 300;
       background-color: #D6E1E5;
     }
-    body{
-      font-family: 'Open Sans';
-      font-weight: 300;
-      background-color: white;
-    }
+   body{
+     font-family: 'Open Sans';
+     font-weight: 300;
+     background-color:white;
+   }
 
     h1 {
       color: #DB5B33;
@@ -31,6 +31,12 @@
       font-weight: 300;
       text-align:center;
     }
+    h1{
+      color:orange;
+      font-wieght:300;
+      text-align:center;
+    }
+    
 
     .scroll-icon {
       position: fixed;
@@ -41,16 +47,45 @@
       animation: glow 4s infinite;
       display: none;
     }
-
     .scroll-icon{
       position: fixed;
       left:50%;
+      bottom:20px;
+      font-size:2em;
+    animation: glow 4s infinite;
+    display: none;
+      
+    }
+    .scroll-icon {
+      position: fixed;
+      left: 50%;;
       bottom: 20px;
-      font-size :36px;
+      font-size: 36px;
       cursor:pointer;
       animation: glow 4s infinite;
       display: none;
     }
+
+   @keyframe glow{
+     0%{
+       opacity:1;
+     }
+     50%{
+       opacity:0.3;
+       transform:translateY(10px);
+     }
+   }
+   @keyframes glow{
+     0%{
+       opacity:1;
+     }
+     50%{
+       opacity:0.3;
+       transform: translate3d(10px);
+     }
+   }
+
+    
 
     @keyframes glow {
       0% {
@@ -62,15 +97,7 @@
         transform: translateY(10px);
       }
     }
-    @keyframes glow{
-      0%{
-        opercity:1
-      }
-      50%{
-        opercity:0.3;
-        transform:translateY(10px) ;
-      }
-    }
+    
 
   </style>
 </head>
@@ -166,30 +193,30 @@
       window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     };
 
-    const $scroll = document.querySelector('.scroll');
+    const $scroll = document.querySelector('scroll-icon');
 
-    window.onscroll=()=>{
-        if(window.pageYOffset >10){
-          $scroll.style.display ='block';
-        }else{
-          $scoll.style.display = 'none';
-        }
-    }
-    $scroll.onclick=()=>{
-      window.scroll({top:0,left:0,behavior:'smoothe'});
-    }
-    const $scroll = document.querySelector('.scroll');
-
-    window.onscroll=()=>{
+    window.onscroll = ()=>{
       if(window.pageYOffset >10){
-        scroll.style.dsiplay = 'block';
+        $scroll.style.display = 'block';
       }else{
-        scroll.style.display = 'none'
+        window.style.display ='none';
       }
     }
-    scroll.onclick =()=>{
-    window({top:0,left:0,behavior:'smothe'});
+    $scroll.onclick=()=>{
+      window.scroll({top:0,left:0,behavior:'smoothe'})
     }
+ const $scroll = document.querySelector('scroll-icon');
+
+ window.onscroll =()=>{
+   if(window.pageYOffset >10){
+     $scroll.style.display='block';
+   }else{
+     $scroll.style.display = 'none';
+   }
+ }
+   $scroll.onclick=()=>{
+     window.scroll({top:0,left:0,behavior:'smoothe'});
+   }
   
   </script>
 </body>

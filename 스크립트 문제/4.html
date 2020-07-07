@@ -8,6 +8,7 @@
   <title>Stop watch</title>
   <style>
     @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+    @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
     .stop-watch {
       font-family: 'Source Code Pro', monospace;
@@ -16,7 +17,7 @@
       padding: 30px;
 
     }
-
+    
     .control {
       width: 300px;
       padding: 5px;
@@ -28,11 +29,12 @@
       cursor: pointer;
       outline: none;
     }
-
+    
     .control:hover {
       background: #f44336;
       color: aliceblue;
     }
+  
   </style>
   <title>Stop watch</title>
 </head>
@@ -74,7 +76,7 @@
       }
       else if (mil >= 99) {
         mil = 0;
-        console.log(sec++);
+        sec++
       }
       if (sec >= 60) {
         sec = 0;
@@ -85,76 +87,39 @@
     }
   </script>
   <script>
-    const $button = document.querySelector('.container');
-    const $display = document.querySelector('.display');
-
-    let mil =0;
-    let sec = 0;
-    let min =0;
-    let timer ;
-
-    $button.onclick=(e)=>{
-    if(e.target.textContext === 'Start'){
-      e.target.textContent = 'Stop';
-      timer = setInterval(Start,10);
-    }else if(e.target.textContent === 'Stop'){
-      e.target.textContext = 'Start';
-      clearInterval(timer)
-    }
-    }
-    function Start(){
-        if(mil <= 98){
-          if(mil <10){
-            mil= '0'+mil;
-          }else{
-            mil++;
-          }
-        }else if(mil >=99){
-          mil = 0;
-
-        }if(sec >= 60){
-          sec = 0;
-          min++;
-        }
-        $display.innerHTML =`${min < 10 ? '0'+min : min}:${sec < 10 ? '0'+sec :sec } :${mil <10 ? '0'+ mil :mil}`;
-    }
-    const $button = document.querySelector('.button');
-    const $display = document.querySelector('.display');
+    const $button = document.querySelector('.control');
+    const $display = document.querySelector('.display');;
 
     let mil = 0;
-    let sec =0;
+    let sec= 0;
     let min = 0;
     let timer;
 
-    $button.onclick=(e)=>{
-      if(e.target.textContent === 'Start'){
-        e.target.textContent = 'Stop';
-        timer = setInterval(Start,10);
-      }else if(e.target.textContent === 'Stop'){
-        e.target.textContent = 'Start';
-        clearInterval(timer);
-      }
+    $button.onclick = (e)=>{
+        if(e.target.textContent === 'Start'){
+          e.target.textContent = 'Stop';
+          timer = setInterval(Start,10);
+        }else if(e.target.textContent === 'Stop'){
+          e.target.textContent = 'Start';
+          clearInterval(timer);
+        }
     }
     function Start(){
-      if(mil <= 98){
-        if(mil > 10){
-          mil = '0'+mil;
+      if(mil < 98){
+        if(mil <10){
+          mil ='0'+mil
         }else{
-          mil++
+          mil++;
         }
       }else if(mil >= 99){
         mil = 0;
-        
-      }if(sec >= 60){
+        sec ++;
+      }else if(sec >= 60){
         sec = 0;
-        min ++;
+        min++;
       }
-      $display.innerHTML = `${min < 10 ? '0'+min : min}:${sec < 10 ? '0'+sec :sec } :${mil <10 ? '0'+ mil :mil}`;
-    }
-
-    const $button = document.querySelector('.button')
-
-
+   $display.innerHTML = `${min<10 ? '0'+min :min} : ${sec <10 ? '0'+sec :sec}: ${mil<10? '0'+mil}:mil `;
+    };
     
 
   </script>

@@ -18,13 +18,14 @@
     }
     .container{
       display:flex;
-      justifiy-content:space-between;
-      align-items: center;
-      width: 130px;
-      margin:20px auto;
+      justify-content: space-between;
+      align-items:center;
+      width: 130px;;
+      margin: 20px auto;
       font-size:24px;
-      color:blue;
+      color:white;
     }
+    
 
     button {
       padding: 5px 10px;
@@ -36,14 +37,14 @@
       cursor: pointer;
     }
     button{
-      padding:5px 10px;
+      padding: 5px 10px;
       font-size:24px;
       border-radius:5px;
-      color:blue;
-      border-color:blue;
-      outline:none;
+      color:white;
+      outline:none ;
       cursor:pointer;
     }
+   
 
     .counter {
       width: 50px;
@@ -51,8 +52,9 @@
     }
     .counter{
       width:50px;
-      text-align :center;
+      text-align:center;
     }
+    
   </style>
 </head>
 
@@ -80,22 +82,27 @@
     document.querySelector('.increase').onclick = counter.increase;
     document.querySelector('.decrease').onclick = counter.decrease;
 
-    const $counter =  document.querySelector('.counter');
 
-    const counter = (function (){
-      let num =0;
-      return {
-        increase(){
-          $coutner.textContent = ++num;
-        },
-        decrease(){
-          $counter.textContent = --num;
-        }
-      }
+    const $counter = document.querySelector('.coutner');
+
+    const couter = (function(){
+      let num = 0;
+     return {
+       increase(){
+         $counter.textContent = ++num;
+
+       },
+       decrease(){
+         if(num <=0 )return;
+         $counter.textContent = --num;
+       }
+     }
+
     }());
-    
-    document.querySelector('.increase').onclick = counter.increase;
-    document.querySelector('.decrease').onclick = counter.decrease; 
+
+    document.querySelector('.increase').onclick= counter.increase;
+    document.querySelector('.decrease').onclick = counter.decrease;
+   
   </script>
 </body>
 

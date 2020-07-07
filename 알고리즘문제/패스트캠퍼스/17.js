@@ -127,3 +127,24 @@ function solution(n){
   }
   return arr[1];
 }
+
+function solution(n){
+  let arr =[0,1];
+  for(let i =2;i<=n;i++){
+    arr.push(arr[0]+arr[1] % 1234567);
+    arr.shift();
+  }
+  return arr[1];
+}
+
+function solution(n) {
+  var fibonacci = [0,1];
+
+  for(var i = 2; i <= n; i++){
+      fibonacci.push((fibonacci[0] + fibonacci[1]) % 1234567);
+      fibonacci.shift();
+  }
+
+  var answer = fibonacci[1];
+  return answer;
+}
