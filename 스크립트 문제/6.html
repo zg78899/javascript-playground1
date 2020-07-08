@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Popup</title>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+    @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+    body {
+      font-family: 'Open Sans';
+      font-weight: 300;
+      background-color: #d6e1e5;
+      position: relative;
+    }
+
+    h1 {
+      color: #DB5B33;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .popup-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      transition: all 10s ease-out;
+      display: none;
+      z-index: 1;
+    }
+
+    .popup-wrapper.active {
+      display: block;
+      transition: all 10s ease-out;
+    }
+
+    .popup {
+      width: 600px;
+      height: auto;
+      background: #fff;
+      position: relative;
+      top: 100px;
+      margin: auto;
+      padding: 20px;
+      box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.04);
+      border-radius: 10px;
+    }
+
+    .btn-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      outline: none;
+      font-size: 20px;
+      background: #fff;
+      border: none;
+    }
+    .btn-close:hover{
+      cursor: pointer;
+    }
+
+    .toggle-popup {
+      position: relative;
+      transition: all 3s ease-out;
+    }
+    .popup-message{
+      width:100%;
+      font-size:20px;
+      font-weight: bold;
+    }
+
+    /* CSS 작성 바랍니다. */
+  </style>
+</head>
+
+<body>
+  <h1>JavaScript Popup</h1>
+
+  <div class="popup-wrapper">
+    <div class="popup">
+      <h1>JavaScript Popup</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam</p>
+      <button class="btn-close">X</button>
+      <input type="text">
+      <button class="btn-ok">OK</button>
+      <button class="btn-cancel">Cancel</button>
+    </div>
+  </div>
+
+  <div class="overlay"></div>
+
+  <button class="toggle-popup">show popup</button>
+
+  <p class="popup-message"></p>
+  <script>
+    const $showbutton = document.querySelector('.toggle-popup');
+    const $popupwrapper = document.querySelector('.popup-wrapper');
+    const $popupbox = document.querySelector('.popup');
+    const $closeButton = document.querySelector('.btn-close');
+    const $input = document.querySelector('input');
+    const $okButton = document.querySelector('.btn-ok');
+    const $cancelButton = document.querySelector('.btn-cancel');
+    const $popupMessage = document.querySelector('.popup-message');
+  
+    $showbutton.onclick = () => {
+      $popupwrapper.classList.toggle('active');
+    }
+    $closeButton.addEventListener('click', () => {
+      $popupwrapper.classList.toggle('active');
+    });
+
+    $input.onkeyup = ({target,keyCode})=>{
+      const content = $input.value.trim();
+      if(content === '' || keyCode !== 13)return;
+      target.value = '';
+      popupMessage(content);
+    }
+    $okButton.onclick=()=>{
+      if($popupwrapper.classList.contains('active')){
+        $popupwrapper.classList.remove('active');
+      }
+      if($input.value === '')return;
+      $popupMessage.textContent =`form popup : ${$input.value.trim()}`; 
+      $input.value = '';
+    }
+    $cancelButton.onclick = ()=>{
+      $popupwrapper.classList.remove('active');
+    }
+    const popupMessage = (content)=>{
+      if($popupwrapper.classList.contains('active')){
+        $popupwrapper.classList.remove('active');
+        $popupMessage.textContent = `form popup : ${content}`; 
+      }
+    };
+    
+    
+
+
+
+  </script>
+</body>
+
+</html>
