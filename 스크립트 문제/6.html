@@ -30,17 +30,27 @@
       bottom: 0;
       right: 0;
       background: rgba(0, 0, 0, 0.7);
-      /* display: none; */
-      visibility: hidden;
-      opacity: 0;
+      display: none;
+      /* visibility: hidden;
+      opacity: 0; */
       z-index: 1;
-      transition: opacity 0.3s ease-in-out;
+      /* transition: all 0.3s ease-in-out; */
+      animation: showup 0.3s ease-in-out alternate;
+    }
+    
+    @keyframes showup {
+      0%{
+        opacity: 0;
+      }
+      100%{
+       opacity: 1;
+      }
     }
 
     .popup-wrapper.active {
-      /* display: block; */
-      visibility: visible;
-      opacity: 1;
+      display: block;
+      /* visibility: visible;
+      opacity: 1; */
     }
 
     .popup {
@@ -52,7 +62,7 @@
       margin: auto;
       padding: 20px;
       box-shadow: 13px 13px 0 rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
+      border-radius: 5px;
       transition: all 0.3s linear;
     }
 
