@@ -30,14 +30,17 @@
       bottom: 0;
       right: 0;
       background: rgba(0, 0, 0, 0.7);
-      transition: all 10s ease-out;
-      display: none;
+      /* display: none; */
+      visibility: hidden;
+      opacity: 0;
       z-index: 1;
+      transition: opacity 0.3s ease-in-out;
     }
 
     .popup-wrapper.active {
-      display: block;
-      transition: all 10s ease-out;
+      /* display: block; */
+      visibility: visible;
+      opacity: 1;
     }
 
     .popup {
@@ -48,8 +51,9 @@
       top: 100px;
       margin: auto;
       padding: 20px;
-      box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.04);
+      box-shadow: 13px 13px 0 rgba(0, 0, 0, 0.1);
       border-radius: 10px;
+      transition: all 0.3s linear;
     }
 
     .btn-close {
@@ -88,7 +92,7 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam</p>
       <button class="btn-close">X</button>
-      <input type="text">
+      <input type="text" autofocus>
       <button class="btn-ok">OK</button>
       <button class="btn-cancel">Cancel</button>
     </div>
@@ -109,8 +113,14 @@
     const $cancelButton = document.querySelector('.btn-cancel');
     const $popupMessage = document.querySelector('.popup-message');
   
+   window.onclick = (e)=>{
+    if(e.target == $popupwrapper && $popupwrapper.classList.contains('active')){
+      $popupwrapper.classList.remove('active');
+    }
+   }
     $showbutton.onclick = () => {
       $popupwrapper.classList.toggle('active');
+      $input.focus();
     }
     $closeButton.addEventListener('click', () => {
       $popupwrapper.classList.toggle('active');
@@ -139,11 +149,6 @@
         $popupMessage.textContent = `form popup : ${content}`; 
       }
     };
-    
-    
-
-
-
   </script>
 </body>
 
