@@ -82,27 +82,6 @@
     document.querySelector('.increase').onclick = counter.increase;
     document.querySelector('.decrease').onclick = counter.decrease;
 
-
-    const $counter = document.querySelector('.coutner');
-
-    const couter = (function(){
-      let num = 0;
-     return {
-       increase(){
-         $counter.textContent = ++num;
-
-       },
-       decrease(){
-         if(num <=0 )return;
-         $counter.textContent = --num;
-       }
-     }
-
-    }());
-
-    document.querySelector('.increase').onclick= counter.increase;
-    document.querySelector('.decrease').onclick = counter.decrease;
-   
   </script>
 </body>
 
