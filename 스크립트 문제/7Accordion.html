@@ -56,7 +56,6 @@
       transition: all 0.4s ease;
     }
 
-
     .accordion li:last-child .menu {
       border-bottom: 0;
     }
@@ -171,7 +170,7 @@
     </li>
   </ul>
 </body>
-<script>
+<!-- <script>
   class Accordion {
     constructor(options) {
       this.config = Accordion.mergeConfig(options);
@@ -207,7 +206,7 @@
 
     static multiTrue(e) {
       const taregt = e.target.parentNode;
-      console.log(target);
+      
       target.classList.toggle('active')
       target.lastElementChild.style.height = target.classList.contains('active') ? `${target.lastElementChild.scrollHeight}px` : '0';
     }
@@ -230,7 +229,68 @@
     console.log(accordion);
   }
 
+</script> -->
+<script>
+  class Accordion {
+    constructor(options) {
+      this.config = this.mergeConfig(options);
+      this.$accordion = document.querySelector(this.config.selector);
+
+      if (this.config.multi) {
+        this.$accordion.addEventListener('click', this.multiTrue.bind(this));
+      } else {
+        this.$accordion.addEventListener('click', this.multiFalse.bind(this));
+      }
+    }
+
+    
+     multiTrue(e) {
+      [...this.$accordion.children].forEach(item => {
+        item.lastElementChild.style.height = item.classList.contains('active') ? `${item.lastElementChild.scrollHeight}px` : '0';
+        item.classList.toggle('active');
+        const target = e.target.parentNode;
+        if (target !== item) {
+          item.classList.remove('active');
+          item.lastElementChild.style.height = '0'
+        } else {
+          item.classList.add('active');
+          item.lastElementChild.style.height = `${item.lastElementChild.scrollHeight}px`;
+        }
+        
+      });
+
+    }
+
+    multiFalse(e) {
+      
+      [...this.$accordion.children].forEach(item => {
+        const target = e.target.parentNode;
+        if (target !== item) {
+          item.classList.remove('active');
+          item.lastElementChild.style.height = '0'
+        } else {
+          item.classList.add('active');
+          item.lastElementChild.style.height = `${item.lastElementChild.scrollHeight}px`;
+        }
+      })
+    }
+
+    mergeConfig(options) {
+      const config = {
+        selector: '#accordion',
+        multi: true
+      };
+      return { ...config, ...options };
+    }
+
+  }
+
+  window.onload = function () {
+    const accordion = new Accordion({ multi: true });
+  }
+
 
 </script>
+
 
 </html>
