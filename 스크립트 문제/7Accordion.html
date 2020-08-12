@@ -143,7 +143,7 @@
   <h1>Accordion Menu</h1>
 
   <ul id="accordion" class="accordion">
-    <li class="active">
+    <li>
       <!-- <li> -->
       <div class="menu"><i class="fa fa-code"></i>Front-end<i class="fa fa-chevron-down"></i></div>
       <ul class="submenu">
@@ -170,99 +170,33 @@
     </li>
   </ul>
 </body>
-<!-- <script>
-  class Accordion {
-    constructor(options) {
-      this.config = Accordion.mergeConfig(options);
-      this.$accordion = document.querySelector(this.config.selector);
-
-      this.defaultAccordion();
-
-      if (this.config.multi) {
-        this.$accordion.addEventListener('click', Accordion.multiTrue);
-
-      } else {
-        this.$accordion.addEventListener('click', this.multiFalse.bind(this));
-      }
-    }
-
-
-    static mergeConfig(options) {
-      //기본 옵션
-      const config = {
-        selector: '#accordion',
-        multi: true
-      }
-      return { ...config, ...options };
-    }
-
-    defaultAccordion() {
-      [...this.$accordion.children].forEach(item => {
-        item.lastElementChild.style.height = item.classList.contains('active') ? `${item.lastElementChild.scrollHeight}px` : '0';
-        console.log(item);
-        console.log(item.lastElementChild);
-      })
-    }
-
-    static multiTrue(e) {
-      const taregt = e.target.parentNode;
-      
-      target.classList.toggle('active')
-      target.lastElementChild.style.height = target.classList.contains('active') ? `${target.lastElementChild.scrollHeight}px` : '0';
-    }
-
-    multiFalse(e) {
-      [...this.$accordion.children].forEach(item => {
-        const target = e.target.parentNode;
-        if (target !== item) {
-          item.classList.remove('active');
-          item.lastElementChild.style.height = '0';
-        } else {
-          item.classList.contains('active');
-          item.lastElementChild.style.height = `${item.lastElementChild.scrollHeight}px`;
-        }
-      })
-    }
-  }
-  window.onload = function () {
-    const accordion = new Accordion({ multi: false });
-    console.log(accordion);
-  }
-
-</script> -->
 <script>
   class Accordion {
     constructor(options) {
       this.config = this.mergeConfig(options);
       this.$accordion = document.querySelector(this.config.selector);
 
-      if (this.config.multi) {
-        this.$accordion.addEventListener('click', this.multiTrue.bind(this));
-      } else {
-        this.$accordion.addEventListener('click', this.multiFalse.bind(this));
+      // if (this.config.multi) {
+      //   this.$accordion.addEventListener('click', this.multiTrue.bind(this));
+      // } else {
+      //   this.$accordion.addEventListener('click', this.multiFalse.bind(this));
+      // }
+      
+      this.$accordion.addEventListener('click',this.toggleClass.bind(this));
+      if(this.config.multi){
+        [...this.$accordion.children][0].classList.add('active');
+        this.defaultAccordion();
+        this.toggleClass(e);
+      }else{
+        this.toggleClass(e);
       }
     }
-
-    
-     multiTrue(e) {
+    defaultAccordion() {
       [...this.$accordion.children].forEach(item => {
         item.lastElementChild.style.height = item.classList.contains('active') ? `${item.lastElementChild.scrollHeight}px` : '0';
-        item.classList.toggle('active');
-        const target = e.target.parentNode;
-        if (target !== item) {
-          item.classList.remove('active');
-          item.lastElementChild.style.height = '0'
-        } else {
-          item.classList.add('active');
-          item.lastElementChild.style.height = `${item.lastElementChild.scrollHeight}px`;
-        }
-        
-      });
-
+      })
     }
-
-    multiFalse(e) {
-      
+    toggleClass(e) {
       [...this.$accordion.children].forEach(item => {
         const target = e.target.parentNode;
         if (target !== item) {
@@ -274,7 +208,6 @@
         }
       })
     }
-
     mergeConfig(options) {
       const config = {
         selector: '#accordion',
@@ -282,14 +215,11 @@
       };
       return { ...config, ...options };
     }
-
   }
 
   window.onload = function () {
-    const accordion = new Accordion({ multi: true });
+    const accordion = new Accordion({ multi:true });
   }
-
-
 </script>
 
 
