@@ -136,6 +136,7 @@
       background: #b63b4d;
       color: #fff;
     }
+
   </style>
 </head>
 
@@ -176,12 +177,6 @@
       this.config = this.mergeConfig(options);
       this.$accordion = document.querySelector(this.config.selector);
 
-      // if (this.config.multi) {
-      //   this.$accordion.addEventListener('click', this.multiTrue.bind(this));
-      // } else {
-      //   this.$accordion.addEventListener('click', this.multiFalse.bind(this));
-      // }
-      
       this.$accordion.addEventListener('click',this.toggleClass.bind(this));
       if(this.config.multi){
         [...this.$accordion.children][0].classList.add('active');
