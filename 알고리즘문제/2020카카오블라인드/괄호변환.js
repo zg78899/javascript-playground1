@@ -12,7 +12,6 @@ function solution(p) {
   if (p === '') {
       return answer;
   }
-  
 
   for (var i=0; i<p.length; i++){ //문자열 하나씩 확인
       if(p[i]==='('){
@@ -49,3 +48,4 @@ function solution(p) {
        }    
   }
 }
+

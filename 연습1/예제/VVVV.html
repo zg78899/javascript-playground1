@@ -136,6 +136,33 @@
 
       }
     </script>
+  <script>
+    const a = [1,2,3,4,5];
+    const b = ['a','b','c','d','e'];
+
+    //map
+    let c = a.map((item,i)=>{
+      if(i % 2== 0){
+        return [b[i],item]
+      }
+      else{
+       return [item,b[i]]
+      }
+    });
+    console.log(c);
+
+
+    //forEach
+  //forEach는 reutrn이 undefined을 반환
+    const c = [];
+    a.forEach((item,index)=>{
+      if(index % 2=== 0){
+        c.push([b[index],item]);
+      }else{
+        c.push(item,b[index]);
+      }
+    }) 
+  </script>
   </footer>
 
 </body>
