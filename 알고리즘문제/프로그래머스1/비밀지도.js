@@ -9,6 +9,7 @@ for(let i =0;i<n;i++){
 return answer;
 }
 
+
 function solution(n,arr1,arr2){
   const answer =[];
   for(let i =0;i<n;i++){
@@ -154,3 +155,31 @@ console.log(solution(5,[9, 20, 28, 18, 11],[30, 1, 21, 17, 28]));
 //   return answer;
 
 // }
+function solution(n,arr1,arr2){
+  let answer = [];
+
+  let arr1_1 = arr1.map(element=> element.toString(2));
+  let arr2_1 = arr2.map(element=>element.toString(2));
+  let long = n;
+  for(let i =0;i<arr1_1.length;i++){
+    if(long>arr2_1[i].length){
+      arr2_1[i] = Array(long - arr2_1[i].length).fill('0')+join("")+arr2_1[i];
+    }
+    if(long >arr1_1[i].length){
+      arr1_1[i] = Array(long - arr1_1[i].length).fill('0')+join("")+arr1_1[i];
+    }
+  }
+
+  for(let i =0;i<arr1_1.length;i++){
+    let word = '';
+    for(let j =0;j<arr1_1[i].length;j++){
+      if(arr1_1[i][j] === '1' || arr2_1[i][j] === "1"){
+      word += '#';
+      }else{
+        word += ' ';
+      }
+    }
+    answer.push(word);
+  };
+  return answer;
+}

@@ -49,3 +49,43 @@ function solution(p) {
   }
 }
 
+function solution(p){
+    var answer = [];
+    var countL = 0;
+    var countR = 0;
+    var isStringRight = true;
+
+    if(p === ''){
+        return answer;
+    }
+    for(let i =0;i<p.length;i++){
+        if(p[i] === '('){
+            countL +=1;
+        }
+        if(p[i] === ')'){
+            countR +=1;
+        };
+        if(countL <countR){
+            isStringRight = false;
+        };
+        if(countL === countR){
+            if(isStringRight = true){
+                answer = asnewr+p.slice(0,i+1);
+                answer = asnewr +solution(p.slice(i+1));
+                return answer;
+            }else{
+                ansewr = '('+solution(p.slice(i+1))+')';
+                for(var j = 1;i<i;j++){
+                    if(p[j] === '(' ){
+                        answer =answer +')'
+                    }else{
+                        answer = answer+ '('
+                    }
+                };
+                return answer;
+
+            }
+        }
+    }
+     
+}
