@@ -5,6 +5,15 @@ function sum(n){
   return n + sum(n-1);
 }
 
+function factorial(fnum){
+  let bnum = 1;
+  if(fnum === bnum){
+    return bnum;
+  }
+  else return fnum * factorial(fnum -1);
+};
+console.log(factorial(4));
+
 function multiple(n){
   if(n <=1){
     return 1
@@ -29,6 +38,7 @@ while(true){
   return result.split('').reverse().join('');
 }
 
+
 //재귀함수를 사용한 2진수 변환
 function 이진법(숫자){
   if(숫자 ===1 || 숫자 === 0){
@@ -37,6 +47,10 @@ function 이진법(숫자){
   return String(숫자 % 2)+이진법(Math.floor(숫자))
 }
 //재귀함수를 이용한 문자열 뒤집기
+
+
+
+
 
 let result = '';
 let x = 'kimjaehun';
@@ -57,6 +71,14 @@ function 문자열역순(문자){
   return 문자열역순(문자.slice(0,문자.length -1))+문자[문자.length -1];//정순의 결과
   // return 문자[문자.length -1] + 문자열역순(문자.slice(0,문자.length -1);//역순
 }
+
+function 문자열역순(문자){
+  if(문자.length === 1){
+    return 문자
+  }
+  return 문자열역순(문자.slice(0,문자.length-1))+문자[문자.length - 1]
+}
+
 
 let result = 0;
 let x = '123123';
@@ -107,3 +129,9 @@ return [gcd,lcm];
    if(b === 0) return a;
    return a>b ? calcGcd(b,a%b):calcGcd(a,b%a)
  }
+
+
+
+
+
+ 

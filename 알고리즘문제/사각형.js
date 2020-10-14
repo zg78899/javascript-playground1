@@ -29,4 +29,4 @@ function solution(v){
     return answer;
 }
 console.log(solution([[1, 4], [3, 4], [3, 10]]))
-// https://medium.com/@ohoroyoi/programmers-%EB%82%98%EB%A8%B8%EC%A7%80-%ED%95%9C-%EC%A0%90-d826db10e658
+

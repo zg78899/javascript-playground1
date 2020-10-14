@@ -148,3 +148,4 @@ function solution(n) {
   var answer = fibonacci[1];
   return answer;
 }
+

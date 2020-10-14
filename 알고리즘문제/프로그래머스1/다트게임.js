@@ -298,7 +298,7 @@ function solution(dartResult){
         count+=1;
       }
     }else if(/[SDT]/.test(s)){
-      nums[count - 1] = Math.pow(nums[count - 1],s === 'D'?2:s === 'T' ? 3:1;)
+      nums[count - 1] = Math.pow(nums[count - 1],s === 'D'?2:s === 'T' ? 3:1)
     }else{
       if(s === '*'){
         nums[count - 1] *=2 ;
@@ -483,34 +483,54 @@ function solution(dartResult){
   }
   return nums.reduce((acc,cur)=>acc+cur,0)
 };
-
-
 function solution(dartResult){
-  let nums =[];
   let count = 0;
-   for(let i =0;i<dartResult.length;i++){
-     const s = dartResult[i];
-     if(/\d/.test(s)){
-       if(/\d/.test(dartResult[i-1])){
-        nums[count -1 ] = 10;
-       }else{
-         nums.push(+s);
-         count+=1;
-       }
-     }else if(/[SDT]/.test(s)){
-       nums[count - 1] = Math.pow(nums[count - 1],s=== 'D'?2:s==='T'?3:1);
-     }
-     else{
-       if(s === '*'){
-        nums[count - 1] *= 2;
-        if(count > 1){
-          nums[count - 2] *=2; 
+  let stack = [];
+  let score = {S:1,D:2,T:3};
+  for(let i =0;i<dartResult.length;i++){
+    const data = dartResult[i];
+    if(+data !== data){// 숫작 아닌경우
+      if(score[data]){
+        stack.push(Math.pow(dartResult.slice(i - count,count),score[data]));
+      }else{
+        const invairable =data === '*' ?2 :-1;
+        const length = stack.length;
+        if(invariable === 2 && length>1){
+          stack[legnth -2] = stack[length - 2]* invariable;
         }
-       }else{
-         nums[count - 1] *= -1;
-
-       }
-     }
-     return nums.reduce((acc,cur)=>acc+cur,0);
-   }
+        stack[length - 1] = stack[length -1]*- invariable;
+      };
+    }else{ //숫자인경우
+      count++;
+    }
+  }
+  return stack.reduce((acc,cur)=>acc+cur,0)
+}
+function solution(dartResult){
+ let nums =[];
+ let count = 0;
+ for(let i =0;i<dartResult.length;i++){
+  const s = dartResult[i]; 
+  if(/\d/.test(s)){//숫자인경우
+    if(/\d/.test(dartResult[i - 1])){//숫자인겨우
+      nums[count - 1] = 10;
+    }else{
+      nums.push(+p);
+      count+=1;
+    }
+  }else if(/[SDT]/.test(s)){
+     nums[count - 1] = Math.pow(nums[count - 1],s === 'D' ? 2:s==='T' ?3:1);
+  }else{
+    if(s === '*'){
+      nums[count -1] = nums[count - 1]*2;
+      if(count > 1){
+        nums[count - 2] *= 2;
+      }
+    }else{
+      nums[count - 1]*= -1;
+    }
+  }
+  return nums.reduce((acc,cur)=>acc+cur,0);
+ } 
+ 
 }

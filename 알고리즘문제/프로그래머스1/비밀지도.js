@@ -7,8 +7,7 @@ for(let i =0;i<n;i++){
   
 }
 return answer;
-}
-
+} 
 
 function solution(n,arr1,arr2){
   const answer =[];

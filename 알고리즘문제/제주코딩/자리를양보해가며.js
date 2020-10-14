@@ -4,7 +4,7 @@ function solution(동물,자리) {
   let 의자 = [];
   let answer = 0;
   for(var 개별동물 of 동물){
-
+  
     if (의자.length < 3) {
       if (의자.includes(개별동물)) {
         의자.splice(의자.indexOf(개별동물), 1);
