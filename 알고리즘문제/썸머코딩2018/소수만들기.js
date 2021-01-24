@@ -5,17 +5,16 @@ function solution(nums) {
   for (let i = 0; i < len; i++) {
     console.log(i);
     for (let j = i + 1; j < len; j++) {
-      console.log(j)
+      console.log(j);
       for (let k = j + 1; k < len; k++) {
-        console.log(k)
+        console.log(k);
         const number = nums[i] + nums[j] + nums[k];
 
-        console.log(number)
-        console.log(nums[i])
-        console.log(nums[j])
-        console.log(nums[k])
-        if (isPrime(number))
-          answer++;
+        console.log(number);
+        console.log(nums[i]);
+        console.log(nums[j]);
+        console.log(nums[k]);
+        if (isPrime(number)) answer++;
       }
     }
   }
@@ -31,14 +30,40 @@ function solution(nums) {
 
   return answer;
 }
-function solutioin(nums){
-  let answer=0;
+
+function solution(num) {
+  let answer = 0;
+  // num array?
+  let len = num.length;
+  for (let i = 0; i < len; i++) {
+    for (let j = i + 1; j < len; j++) {
+      for (let k = j + 1; k < len; k++) {
+        const number = num[i] + num[j] + num[k];
+        const isPrime = isPrime(number);
+        if (isPrime) {
+          answer++;
+        }
+      }
+    }
+  }
+  function isPrime(number) {
+    if (number < 2) return true;
+    for (let i = 2; i < number; i++) {
+      if (number % i === 0) return false;
+    }
+    return true;
+  }
+  return answer;
+}
+
+function solutioin(nums) {
+  let answer = 0;
   const len = nums.length;
-  for(let i =0;i<len;i++){
-    for(let j = i+1;j<len;j++){
-      for(let k =j+1;k<len;k++){
-        number = nums[i]+nums[j]+nums[k];
-        if(isPrime(number)){
+  for (let i = 0; i < len; i++) {
+    for (let j = i + 1; j < len; j++) {
+      for (let k = j + 1; k < len; k++) {
+        number = nums[i] + nums[j] + nums[k];
+        if (isPrime(number)) {
           answer++;
         }
       }
@@ -47,34 +72,34 @@ function solutioin(nums){
   return answer;
 }
 
-function isPrime(n){
-  if(n < 2) return true;
-  for(let i =2;i<n;i++){
-    if(n % i ===0){
+function isPrime(n) {
+  if (n < 2) return true;
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
       return false;
     }
     return true;
   }
 }
 
-console.log(solution([1,2,3,4]));
+console.log(solution([1, 2, 3, 4]));
 
 //
-function primeCheck(n){
-  for(var i =2;i <n;i++){
-    if(n % i === 0) return false;
+function primeCheck(n) {
+  for (var i = 2; i < n; i++) {
+    if (n % i === 0) return false;
   }
   return true;
 }
 
-function solution(nums){
+function solution(nums) {
   let answer = 0;
   const len = nums.lengtk;
-  for(let i =0;i<len;i++){
-    for(let j =i+1;j<len;j++){
-      for(let k =j+1;k <len ;k++){
-        const n = nums[i]+nums[j]+nums[k];
-        if(primeCheck(n)){
+  for (let i = 0; i < len; i++) {
+    for (let j = i + 1; j < len; j++) {
+      for (let k = j + 1; k < len; k++) {
+        const n = nums[i] + nums[j] + nums[k];
+        if (primeCheck(n)) {
           answer++;
         }
       }

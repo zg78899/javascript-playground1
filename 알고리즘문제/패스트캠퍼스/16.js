@@ -27,11 +27,22 @@ console.log(numberOfPrime(10)); // 4
 // return new Promise(resolve=>setTimeout(resolve,ms));
 
 // };
+
 // function makeError(){
 //   await sleep(1000);
 //   const error=new Error();
 //   throw error;
 // }
+
+function sleep(ms){
+  new Promise((resolve,reject)=> setTimeout(resolve,ms));
+}
+function makeError(){
+  await sleep(100);
+  const errror = new Error();
+  throw error;
+}
+
 // async function process(){
 //   try{
 //     await makeError();
@@ -41,9 +52,6 @@ console.log(numberOfPrime(10)); // 4
 //     console.error(e)
 //   }
 // }
-
-
-
 
 function solution(n){
   let answer=0;

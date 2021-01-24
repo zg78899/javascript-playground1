@@ -51,3 +51,8 @@ function snowflake(){//생성자 함수
     //ellipse 타원형 그리는 메소드
   }
 }
+
+
+
+// b8d66551e308a5be7765c31be1b9ab4d
+// https://api.themoviedb.org/3/movie/550?api_key=b8d66551e308a5be7765c31be1b9ab4d

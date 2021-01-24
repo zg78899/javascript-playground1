@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form name="selectForm">
+    <p>
+      <label for="musicTypes">Choose some music types, then click the button below:</label>
+      <select name="musicTypes" id="musicTypes" multiple="multiple">
+        <option selected="selected">R&B</option>
+        <option>Jazz</option>
+        <option>Blues</option <option>New Age</option>
+        <option>Classical</option>
+        <option>Opera</option>
+      </select>
+    <p><input id="btn" type="button" value="How mant selected music" /></p>
+    </p>
+  </form>
+  <script defer>
+    function selectBox(selectObject) {
+      console.log(selectObject)
+      let numberOfSelected = 0;
+      for (let i = 0; i < selectObject.options.length; i++) {
+        if (selectObject.options[i].selected) {
+          numberOfSelected++;
+        }
+      }
+      return numberOfSelected;
+    }
+
+    document.getElementById('btn').addEventListener('click', function () {
+      alert(`How many selected options ${howManySelected(document.selectForm.musicTypes)}`)
+    })
+  </script>
+</body>
+
+</html>
+
+<!-- 
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JavaScript Select Box</title>
+  <link rel="stylesheet" href="css/selectbox.css">
+</head>
+
+<body>
+  <div id="container">
+    <form>
+      <label for="framework">Select one or more JS Frameworks:</label>
+      <select id="framework" multiple>
+        <option value="1">Angular</option>
+        <option value="2">React</option>
+        <option value="3">Vue.js</option>
+        <option value="4">Ember.js</option>
+      </select>
+      <button id="btn">Get Selected Frameworks</button>
+    </form>
+  </div>
+  <script>
+    const btn = document.getElementById('btn');
+    const selectBox = document.getElementById('framework');
+
+    btn.onclick = (e)=>{
+      e.prevnetDefault();
+      let selectedValue = [].filter.call(selectBox.options, options=> options.selected)
+      .map(option => option.text);
+      
+      alert(selectedValue)
+    }
+  </script>
+</body>
+
+</html> -->
