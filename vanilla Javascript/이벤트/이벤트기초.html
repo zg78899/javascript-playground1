@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" value="클릭하세요" id="elem">
+  <script>
+    elem.onclick = function (event) {
+      alert(`${event.type} 이벤트가 ${event.currentTarget}에서 발생했습니다.`);
+      //click [objcet HTMLInputElement]
+      alert(`${event.clientX}:${event.clientY}`);
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContetnLoaded', () => {
+      alert('contentLoaded');
+    })
+  </script>
+  <button id="elem">클릭해주세요</button>
+  <script>
+    let obj = {
+      handleEvent(event) {
+        alert(`${event.type}에서 ${event.currentTarget}에서 발생 했습니다.`);
+
+      }
+    }
+    elem.addEventListener('click'.obj);
+  </script>
+  <script>
+    class Menu {
+      handleEvent(event) {
+        switch (event.type) {
+          case 'mousedown':
+            elem.innerHTML = '마우스 버튼을 눌렀습니다.';
+            break;
+          case 'mouseup':
+            elem.innerHTML += '마우스 버튼을 뗏습니다.';
+            break;
+        }
+      }
+    }
+    let menu = new Menu();
+    elem.addEventListener('mousedown', menu);
+    elem.addEventListener('mouseup', menu);
+  </script>
+  <button id="elem">클릭해주세요</button>
+  <script>
+    class Menu {
+      handleEvent(event) {
+        let method = event.type[0].toUpperCase() + event.type.slice(1);
+        this[method](event);
+      }
+      onMouseDown() {
+        elem.innerHTML = '마우스를 클릭 하였습니다.'
+      }
+      onMouseUp() {
+        elem.innerHTML += '그리고 뗐습니다.';
+      }
+    }
+    let menu = new Menu();
+    elem.addEventListener('mousedown', menu);
+    elem.addEventListener('mouseup', menu);
+  </script>
+  <button id="elem">Click to hide the text</button>
+  <div id="text">Text</div>
+  <script>
+    elem.addEventListener('click', () => {
+      text.innerHTML = '';
+    });
+  </script>
+  <input type="button" id="hider" value="Click to hide the text">
+  <div id="text">Text</div>
+  <script>
+    hider.addEventListener('click', () => text.innerHTML = '');
+    document.getElementById('hider').onclick = () => document.getElementById('.text').hidden = true;  
+  </script>
+  d
+  <input type="button" onclick="this.toggle =true" value="Click to hide">
+  <script>
+    let ball = document.getElementById('ball');
+    function moveTatget(event) {
+      event.target.clientX = ball.clientX;
+      event.target.clientY = ball.clientY;
+
+    }
+    document.getElementById('field').addEventListener('click', (event) => {
+      moveTatget(event);
+    })
+
+  </script>
+</body>
+
+</html>
